@@ -1,0 +1,1418 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Iptables manual - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iptables-un-manual-sencillo" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-header__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
+      
+  <img src="../logocap.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Iptables manual
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format oscur"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Format oscur" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format clar"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Format clar" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestanyes" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Inici
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../manuals/" class="md-tabs__link">
+          
+  
+  Manuals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../instalar_gns3_primer_escenari/" class="md-tabs__link">
+          
+  
+  GNS3
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../criptografia/" class="md-tabs__link">
+          
+  
+  Criptografía
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ssh/" class="md-tabs__link">
+          
+  
+  SSH
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-nav__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
+      
+  <img src="../logocap.png" alt="logo">
+
+    </a>
+    BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inici
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Manuals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Manuals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manuals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guíes i manuals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    GNS3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            GNS3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instalar_gns3_primer_escenari/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació de GNS3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crear_appliances/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crear appliances
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Criptografía
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Criptografía
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../criptografia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Prac_T2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pràctiques del tema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apunts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apunts complementaris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    SSH
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apunts SSH
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apunts SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../connexio_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connexió SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../xifrats_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xifrats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pràctiques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardering_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardering SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssh_2fa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2FA SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sshaudit24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH-Audit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssh_guard2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH-Guard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fail2ban_telegram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fail2ban i Telegram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssh_cert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accés remot amb certificats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux-como-cortafuegospermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux como cortafuegosPermalinkÁ**
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux como cortafuegosPermalinkÁ**">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iptablespermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      iptablesPermalinkÁ**
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tablaspermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      TablasPermalinkÁ**
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-los-paquetes-a-traves-de-iptablespermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo de los paquetes a través de iptablesPermalinkÁ**
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comandos-de-configuracionpermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos de configuraciónPermalinkÁ**
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos de configuraciónPermalinkÁ**">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listado-de-reglaspermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listado de reglas:PermalinkÁ**
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#borrado-de-contadorespermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Borrado de contadores:PermalinkÁ**
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#borrado-de-todas-las-reglaspermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Borrado de todas las reglas:PermalinkÁ**
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-y-borrado-de-reglaspermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación y borrado de reglas:PermalinkÁ**
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#establecimiento-de-un-politica-por-defectopermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Establecimiento de un política por defecto:PermalinkÁ**
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-ejemplo-sencillopermalinka" class="md-nav__link">
+    <span class="md-ellipsis">
+      Un ejemplo sencilloPermalinkÁ**
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<ul>
+<li><a href="#site-nav">Skip to primary navigation</a></li>
+<li><a href="#main">Skip to content</a></li>
+<li><a href="#footer">Skip to footer</a></li>
+</ul>
+<p><a name="site-nav"></a><a href="https://fp.josedomingo.org/">PLEDIN 3.0 </a></p>
+<ul>
+<li><a href="https://www.josedomingo.org/">Inicio</a></li>
+<li><a href="https://www.josedomingo.org/pledin/blog">Blog</a></li>
+<li><a href="https://plataforma.josedomingo.org/">Plataforma</a></li>
+<li><a href="https://fp.josedomingo.org/">Módulos</a></li>
+<li><a href="https://www.josedomingo.org/pledin/about/">Presentación</a></li>
+</ul>
+<p>Toggle search <strong></strong> Toggle menu </p>
+<p><a name="main"></a><a name="accordion-toc"></a> FORMCHECKBOX Toggle Menu </p>
+<ul>
+<li>Seguridad y Alta Disponibilidad (antiguo) </li>
+<li><a href="https://fp.josedomingo.org/seguridadgs/">Inicio</a></li>
+<li><a href="https://fp.josedomingo.org/seguridadgs/u01">Introducción</a></li>
+<li><a href="https://fp.josedomingo.org/seguridadgs/u02">Criptografía</a></li>
+<li><a href="https://fp.josedomingo.org/seguridadgs/u03">Cortafuegos</a></li>
+<li><a href="https://fp.josedomingo.org/seguridadgs/u04">VPN</a></li>
+<li><a href="https://fp.josedomingo.org/seguridadgs/u05">Alta disponibilidad</a></li>
+</ul>
+<h1 id="iptables-un-manual-sencillo"><strong>iptables, un manual sencillo</strong></h1>
+<p>Un cortafuegos (firewall) es un dispositivo hardware o software que tiene como objetivo proteger una red de otras redes a las que está conectado. El cortafuegos se configura con una serie de reglas que determinan el tráfico que puede pasar de una red a otra y el tráfico que debe ser bloqueado. Para comprender el funcionamiento de un cortafuegos, podemos pensar en cómo desempeñan su trabajo los guardias de seguridad de una discoteca. Los dueños del local establecen los criterios que debe cumplir un potencial cliente para poder pasar a la sala y, cada vez que alguien llega a la puerta, el portero lo evalúa:</p>
+<ul>
+<li>si cumple los criterios → pasa</li>
+<li>si no los cumple → no pasa</li>
+</ul>
+<p>En la siguiente figura se representa el esquema de una red de ordenadores que utiliza un cortafuegos para proteger la red local de la red externa:</p>
+<p><img alt="iptables" src="Aspose.Words.4ae0ae75-dd4d-4927-a861-048c5dd9441f.001.png" /></p>
+<p>Se pueden construir cortafuegos más sofisticados, como veremos a lo largo del artículo, que incluyen equipos separados del resto de la red local (<strong>DMZ: Zona Desmilitarizada</strong>) para aumentar aún más la seguridad. De hecho, en las grandes corporaciones, es posible encontrar instalaciones con más de un cortafuegos, que separan los equipos de diferentes áreas de la empresa.</p>
+<h2 id="linux-como-cortafuegospermalinka"><a name="linux-como-cortafuegos"></a><strong>Linux como cortafuegos<a href="#linux-como-cortafuegos" title="Permalink">PermalinkÁ**</a></strong></h2>
+<p>El núcleo de las máquinas GNU/Linux incorpora el framework Netfilter, que permite interceptar y manipular paquetes de red. Además, en el espacio de usuario, el administrador puede usar iptables para establecer las reglas del firewall.</p>
+<h3 id="iptablespermalinka"><a name="iptables"></a><strong>iptables<a href="#iptables" title="Permalink">PermalinkÁ**</a></strong></h3>
+<p>iptables se usa para crear, mantener y revisar las tablas de filtrado de paquetes en el kernel de Linux, y se estructura de la siguiente manera:</p>
+<ul>
+<li>Existen diferentes tablas (tables) dentro de las cuales puede haber varias cadenas (chains).</li>
+<li>Cada cadena consiste en una lista de reglas con las que se comparan los paquetes que pasan por el cortafuegos. Las reglas especifican qué se hace con los paquetes que se ajustan a ellas (target).</li>
+</ul>
+<p>Para cada paquete que recibe el cortafuegos, se examina la primera regla de la cadena correspondiente. Si el paquete no se ajusta a esa regla, se continúa examinando la siguiente hasta que se ajusta con alguna. En ese momento se ejecuta el target:</p>
+<ul>
+<li>DROP: el paquete se descarta, no puede pasar</li>
+<li>ACCEPT: el paquete continúa su camino normal</li>
+</ul>
+<p>Si se llega al final de una cadena predefinida se ejecuta un target por defecto, llamado chain policy. El chain policy establece, por tanto, la política por defecto de nuestro cortafuegos.</p>
+<h3 id="tablaspermalinka"><a name="tablas"></a><strong>Tablas<a href="#tablas" title="Permalink">PermalinkÁ**</a></strong></h3>
+<p>Como decíamos, en iptables existen varias tablas, que tienen diferentes objetivos:</p>
+<ul>
+<li>La tabla filter es la tabla por defecto, y se utiliza para especificar filtros de paquetes. Contiene 3 chains predefinidas:</li>
+<li>INPUT: Se consulta para los paquetes que van dirigidos al propio cortafuegos</li>
+<li>FORWARD: La atraviesan los paquetes enrutados a través de esta máquina, es decir, aquellos paquetes en los que el origen y el destino son equipos de redes diferentes.</li>
+<li>OUTPUT: Para paquetes generados localmente</li>
+<li>La tabla nat se consulta cada vez que se ve un paquete que inicia una nueva conexión, con el objetivo de alterar algún parámetro de esa conexión. Tiene 3 chains predefinidas:</li>
+<li>PREROUTING: se consulta con los paquetes que entran en la máquina cortafuegos, tan pronto como llegan, antes de decidir qué hacer con ellos.</li>
+<li>OUTPUT: se utiliza para alterar paquetes generados localmente, antes de enrutarlos.</li>
+<li>POSTROUTING: para alterar los paquetes que están a punto de salir de la máquina.</li>
+<li>La tabla mangle es una tabla especial, destinada a alterar determinados parámetros de los paquetes (TOS, TTL …), que se utiliza para realizar configuraciones complejas del cortafuegos. Cuenta con 5 chains predefinidas: INPUT, OUTPUT, PREROUNTING, POSTROUTING Y FORWARD.</li>
+</ul>
+<h3 id="flujo-de-los-paquetes-a-traves-de-iptablespermalinka"><a name="flujo-de-los-paquetes-a-través-de-iptables"></a><strong>Flujo de los paquetes a través de iptables<a href="#flujo-de-los-paquetes-a-través-de-iptables" title="Permalink">PermalinkÁ**</a></strong></h3>
+<p>Veamos todos los posibles caminos que un paquete puede seguir al atravesar nuestro cortafuegos.</p>
+<p><img alt="iptables" src="Aspose.Words.4ae0ae75-dd4d-4927-a861-048c5dd9441f.001.png" /></p>
+<p>Veamos el camino que seguiría, por ejemplo, un paquete que se origina en nuestra red local y va destinado a una máquina de Internet:</p>
+<ul>
+<li>El paquete entra en el cortafuegos por una interfaz de red, por tanto, primero se comprobarían las reglas de la cadena PREROUTING.</li>
+<li>A continuación se comprobarían las reglas de la cadena FORWARD, ya que el paquete no va destinado a un proceso del cortafuegos, si no que va a atravesarlo, saliendo por la interfaz que lo conecta con la red externa.</li>
+<li>Por último, si el paquete no ha sido filtrado y sigue adelante, antes de salir del cortafuegos por la otra interfaz de red, se comprueban las reglas de la cadena POSTROUTING</li>
+</ul>
+<h3 id="comandos-de-configuracionpermalinka"><a name="comandos-de-configuración"></a><strong>Comandos de configuración<a href="#comandos-de-configuración" title="Permalink">PermalinkÁ**</a></strong></h3>
+<p>Vamos a ir explicando, a continuación, los comandos básicos de configuración de iptables. Veremos algún ejemplo sencillo, y terminaremos con un ejemplo completo de configuración de un firewall con DMZ.</p>
+<h4 id="listado-de-reglaspermalinka"><a name="listado-de-reglas"></a><strong>Listado de reglas:<a href="#listado-de-reglas" title="Permalink">PermalinkÁ**</a></strong></h4>
+<p>iptables [-t tabla] [opciones] -L [chain]</p>
+<p>Muestra un listado de todas las reglas de una cadena, o de todas ellas. Las opciones disponibles son:</p>
+<ul>
+<li>-v: información detallada de una regla</li>
+<li>-N: crear una nueva cadena</li>
+<li>-X: Borrar una cadena vacía</li>
+</ul>
+<h4 id="borrado-de-contadorespermalinka"><a name="borrado-de-contadores"></a><strong>Borrado de contadores:<a href="#borrado-de-contadores" title="Permalink">PermalinkÁ**</a></strong></h4>
+<p>iptables [-t tabla] -Z [chain]</p>
+<p>Borra los contadores de una determinada chain, o de todas ellas. Es habitual colocar este comando al principio de todos los script de configuración, para borrar las reglas que existieran de antemano. Se puede combinar con la opción -L para mostrar la información justo antes de borrarla.</p>
+<h4 id="borrado-de-todas-las-reglaspermalinka"><a name="borrado-de-todas-las-reglas"></a><strong>Borrado de todas las reglas:<a href="#borrado-de-todas-las-reglas" title="Permalink">PermalinkÁ**</a></strong></h4>
+<p>iptables [-t tabla] -F [chain]</p>
+<p>Borra las reglas de una determinada chain o de todas ellas.</p>
+<h4 id="creacion-y-borrado-de-reglaspermalinka"><a name="creación-y-borrado-de-reglas"></a><strong>Creación y borrado de reglas:<a href="#creación-y-borrado-de-reglas" title="Permalink">PermalinkÁ**</a></strong></h4>
+<p>iptables [-t table] -A chain rule-spec</p>
+<p>iptables [-t table] -I chain [rulenum] rule-spec</p>
+<p>iptables [-t table] -R chain rulenum rule-spec</p>
+<p>iptables [-t table] -D chain rule-spec</p>
+<p>iptables [-t table] -D chain rulenum</p>
+<p>Las opciones son las siguientes:</p>
+<ul>
+<li>-A: añade una regla al final de la lista</li>
+<li>-I: inserta una regla al comienzo de la lista o en el punto especificado</li>
+<li>-R: reemplaza una regla (especificada por su número de regla) por otra</li>
+<li>-D: borra una regla determinada</li>
+</ul>
+<p>Para especificar una regla podemos usar los siguientes parámetros:</p>
+<ul>
+<li>-p [!] protocolo: el protocolo del paquete a comprobar. Puede ser ‘tcp’, ‘udp’, ‘icmp’ o ‘all’</li>
+<li>-[sd] [!] dirección[/máscara]: dirección ip origen (s) o destino (d) del paquete</li>
+<li>-[io] [!] iface: nombre de la interfaz de entrada (i) o de salida (o) del paquete</li>
+<li>-j target: especifica el target de dicha regla. Puede ser una acción predefinida (ACCEPT, DROP), una extensión o el nombre de una chain</li>
+</ul>
+<h4 id="establecimiento-de-un-politica-por-defectopermalinka"><a name="establecimiento-de-un-política-por-defecto"></a><strong>Establecimiento de un política por defecto:<a href="#establecimiento-de-un-política-por-defecto" title="Permalink">PermalinkÁ**</a></strong></h4>
+<p>iptables [-t table] -P chain target</p>
+<p>Establece el taget que se ejecutará para los paquetes que no cumplan con ninguna regla de la chain especificada.</p>
+<h2 id="un-ejemplo-sencillopermalinka"><a name="un-ejemplo-sencillo"></a><strong>Un ejemplo sencillo<a href="#un-ejemplo-sencillo" title="Permalink">PermalinkÁ**</a></strong></h2>
+<p>Con estos comandos básicos de configuración ya podemos resolver muchos de los problemas con los que se encuentra una empresa al exponer sus sistemas de información a Internet. Vamos a ver un ejemplo sencillo para entender cómo se deben escribir las reglas en iptables. Observemos la figura 3, que representa una instalación sencilla, con una máquina que actúa como router y cortafuegos conectando dos redes distintas.</p>
+<p><img alt="iptables" src="Aspose.Words.4ae0ae75-dd4d-4927-a861-048c5dd9441f.001.png" /></p>
+<p>Supongamos que queremos que sólo la máquina B pueda hablar con C, y además sólo pueda usar el protocolo TCP. Los paquetes que no cumplan estas condiciones serán descartados. Lo primero que tenemos que decidir es ¿en qué tabla y en qué cadena vamos a colocar las reglas? En este caso, queremos realizar filtrado de paquetes, por lo que está claro que trabajaremos con la tabla filter… pero ¿en la cadena INPUT, OUTPUT o FORWARD? Como los paquetes que queremos filtrar son los que van a atravesar el Firewall de una red a otra, trabajaremos con la cadena FORWARD. Los comandos que deberíamos usar para conseguir estos objetivos son los siguientes:</p>
+<p>iptables -F FORWARD</p>
+<p>iptables -P FORWARD DROP</p>
+<p>iptables -t filter -A FORWARD -p tcp -s 192.168.1.2 -d 192.168.2.1 -j ACCEPT</p>
+<p>iptables -t filter -A FORWARD -p tcp -s 192.168.2.1 -d 192.168.1.2 -j ACCEPT</p>
+<ul>
+<li>La línea 1 borra las reglas que pudiera haber en la cadena FORWARD de la tabla filter (que es la tabla por defecto).</li>
+<li>La línea 2 establece la política por defecto a DROP (denegar), por lo tanto, los paquetes que no cumplan con las reglas que especifiquemos serán rechazados.</li>
+<li>Las líneas 3 y 4 permiten el tráfico entre las máquinas B y C según las reglas especificadas en el enunciado.</li>
+</ul>
+<p><img alt="iptables" src="Aspose.Words.4ae0ae75-dd4d-4927-a861-048c5dd9441f.001.png" /></p>
+<p>Los aministradores no suelen sentarse delante de la máquina que actúa como cortafuegos y ejecutan los comandos uno a uno. Es más habitual escribir todos los comandos en un script de shell y ejecutar solamente el script. No sólo se hace por comodidad, sino porque esta opción permite incluir comentarios y reutilizar el código:</p>
+<h1 id="binbash">!/bin/bash</h1>
+<h2 id="script-de-iptables-un-ejemplo-sencillo">Script de iptables – Un ejemplo sencillo</h2>
+<h2 id="borramos-las-reglas-de-la-chain-forward-de-la-tabla-filter">Borramos las reglas de la chain FORWARD de la tabla filter</h2>
+<p>iptables -F FORWARD</p>
+<h2 id="establecemos-la-politica-por-defecto-drop">Establecemos la política por defecto -&gt; DROP</h2>
+<p>iptables -P FORWARD DROP</p>
+<h2 id="aceptamos-los-paquetes-tcp-entre-b-y-c">Aceptamos los paquetes TCP entre B y C</h2>
+<p>iptables -t filter -A FORWARD -p tcp -s 192.168.1.2 -d 192.168.2.1 -j ACCEPT</p>
+<p>iptables -t filter -A FORWARD -p tcp -s 192.168.2.1 -d 192.168.1.2 -j ACCEPT</p>
+<h2 id="extensiones-de-las-reglaspermalinka"><a name="extensiones-de-las-reglas"></a><strong>Extensiones de las reglas<a href="#extensiones-de-las-reglas" title="Permalink">PermalinkÁ**</a></strong></h2>
+<p>Con las opciones vistas hasta el momento podemos controlar los parámetros más básicos de la cabecera IP del paquete. Puede ser necesario un control más estricto, por ello existen una serie de extensiones que permiten utilizar opciones nuevas:</p>
+<ul>
+<li>-m extensión: activa una extensión para poder especificar los parámetros del paquete.</li>
+</ul>
+<p>Veamos algunas extensiones de las reglas:</p>
+<ul>
+<li>tcp: añade las siguientes opciones</li>
+<li>--sport [!] port[:port]: especifica el puerto o rango de puertos origen</li>
+<li>--dport [!] port[:port]: especifica el puerto o rango de puertos destino</li>
+<li>[!] --syn: la regla concordará sólo con los paquetes cuyo bit SYN=1 y los flags ACK y FIN valgan 0. Los datagramas con estos valores se utilizan para abrir las conexiones TCP</li>
+<li>udp: añade las siguientes opciones:</li>
+<li>--sport [!] port[:port]: especifica el puerto o rango de puertos origen</li>
+<li>--dport [!] port[:port]: especifica el puerto o rango de puertos destino</li>
+</ul>
+<p><strong>Ejemplo</strong>: supongamos que quieres crear una regla para permitir el paso a las peticiones a un servidor web que tiene la IP 172.16.0.254.</p>
+<p><code></code>iptables -A FORWARD -p tcp -d 172.16.0.254 --dport 80 -j ACCEPT</p>
+<ul>
+<li>icmp: añade la opción --icmp-type tipo, que indica qué tipo ICMP debe tener el paquete (echo-request, echo-reply, network-unreachable…)</li>
+<li>mac: añade la opción --mac-source [!] dir_mac, que especifica la dirección MAC que debe tener el paquete.</li>
+</ul>
+<p><strong>Ejemplo</strong>: quieres permitir que se realice ping al cortafuegos desde la máquina del administrador, que tiene IP dinámica y MAC 00:21:00:16:82:9f</p>
+<p><code></code>iptables -A INPUT -p icmp --icmp-type echo-request -m mac --mac-source 00:21:00:16:82:9f -j ACCEPT  </p>
+<p><code></code>iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT</p>
+<ul>
+<li>state: Añade la opción --state valor, que indica el estado en el que debe estar la conexión correspondiente a dicho paquete. Los tipos de estado principales son:</li>
+<li>NEW: el paquete corresponde a una conexión nueva</li>
+<li>ESTABLISHED: el paquete está asociado a una conexión ya establecida</li>
+<li>RELATED: el paquete corresponde a una conexión nueva, pero relacionada con una que ya está establecida (como un canal de datos FTP o un error de ICMP)</li>
+<li>multiport: Nos permite indicar con las opciones --sports y --dports varios puertos.</li>
+</ul>
+<h2 id="extensiones-de-targetpermalinka"><a name="extensiones-de-target"></a><strong>Extensiones de target<a href="#extensiones-de-target" title="Permalink">PermalinkÁ**</a></strong></h2>
+<p>Existen otros target diferentes a DROP y ACCEPT que permiten que nuestro cortafuegos realice otras funciones a parte del filtrado de paquetes:</p>
+<ul>
+<li>MASQUERADE: sólo es válida en la chain POSTROUTING. Indica que la dirección origen del paquete (y de todos los de esa conexión) será cambiada por la IP local de esta máquina. Muy útil para IP dinámica (es lo que se conoce como NAT)</li>
+</ul>
+<p>Ejemplo:</p>
+<p><code></code>iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE</p>
+<ul>
+<li>SNAT: sólo es válida en la chain POSTROUTING. Indica que la dirección y puerto origen del paquete (y de todos los de esa conexión) sea modificada según se especifica con la opción --to-source. El target será SNAT (en lugar de MASQUERADE) cuando tengamos una IP fija.</li>
+</ul>
+<p>Ejemplo:</p>
+<p><code></code>iptables -t nat -A POSTROUTING -o eth1 -j SNAT --to-source 189.29.35.15</p>
+<ul>
+<li>DNAT: sólo es válida en las chains PREROUTING y OUTPUT. Cambia la dirección IP destino (y de todos los futuros de esta misma conexión) por el especificado con la opción --to-destination. Es lo que se conoce como ‘abrir el puerto’ en el router.</li>
+</ul>
+<p>Por ejemplo, si la máquina 192.168.1.2 de nuestra red local aloja un servidor web que queremos que sea accesible desde la red externa:</p>
+<p><code></code>iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to-destination 192.168.1.2:80</p>
+<h2 id="dmz-zona-desmilitarizadapermalinka"><a name="dmz-zona-desmilitarizada"></a><strong>DMZ, zona desmilitarizada<a href="#dmz-zona-desmilitarizada" title="Permalink">PermalinkÁ**</a></strong></h2>
+<p>Observa la figura siguiente, que representa una red en la que tenemos un servidor web público, al que vamos a permitir el acceso desde Internet, y un servidor de BBDD privado, con toda la información de nuestra empresa.</p>
+<p><img alt="iptables" src="Aspose.Words.4ae0ae75-dd4d-4927-a861-048c5dd9441f.001.png" /></p>
+<p>¿Qué ocurriría si un atacante consigue comprometer la seguridad de nuestro servidor web? A partir de ese momento, el acceso a los recursos de la red local sería inmediato, ya que ambos servidores se encuentran en la misma red.</p>
+<p>En estos casos, el uso de una DMZ permite que se puedan dar servicios a la red externa a la vez que se protege la red interna en el caso de que un intruso comprometa la seguridad de los equipos situados en la zona desmilitarizada:</p>
+<p><img alt="iptables" src="Aspose.Words.4ae0ae75-dd4d-4927-a861-048c5dd9441f.001.png" /></p>
+<h3 id="un-ejemplo-completopermalinka"><a name="un-ejemplo-completo"></a><strong>Un ejemplo completo<a href="#un-ejemplo-completo" title="Permalink">PermalinkÁ**</a></strong></h3>
+<p>Observemos la imagen, que representa la configuración de la red de nuestra empresa:</p>
+<p><img alt="iptables" src="Aspose.Words.4ae0ae75-dd4d-4927-a861-048c5dd9441f.001.png" /></p>
+<p>En el ejemplo supondremos que nuestra máquina GNU/Linux está conectada a un ROUTER que nos proporciona el acceso a Internet por la interfaz eth2. Este router está configurado como monopuesto (no hace NAT y deja pasar todo el tráfico a nuestra máquina Linux).</p>
+<p>Las direcciones de la máquina son las siguientes:</p>
+<ul>
+<li>eth0: 192.168.1.1/24</li>
+<li>eth1: 192.168.2.1/24</li>
+<li>eth2: dirección IP obtenida por DHCP (dinámica)</li>
+</ul>
+<p>En la DMZ tenemos un servidor WEB y un servidor SSH que queremos sean accesibles desde Internet y la red local. Las direcciones son:</p>
+<ul>
+<li>Servidor WEB: 192.168.2.2/24</li>
+<li>Servidor FTP: 192.168.2.3/24</li>
+</ul>
+<p>Las máquinas de la red local podrán navegar por Internet accediendo a servidores WEB, servidores WEB Seguros, servidores FTP y servidores DNS. El resto de conexiones serán filtradas.</p>
+<p>Todas las máquinas de la red local tienen direcciones del rango 192.168.1.0/24.</p>
+<p>Supondremos que en el firewall hay instalado un servidor ssh para que el administrador pueda conectarse desde la red local.</p>
+<p>Se presenta a continuación un script, con una parte configurable por el usuario, para que pueda ser fácilmente adaptado a otras instalaciones y requisitos:</p>
+<h1 id="binbash_1">!/bin/bash</h1>
+<h6 id="_1">##############################################################</h6>
+<h1 id="plo-de-configuracion-de-un-firewall-con-dmz-y-red-local">plo de configuración de un firewall con DMZ y red local</h1>
+<h6 id="_2"></h6>
+<p>### SECCIÓN CONFIGURABLE POR EL USUARIO ###</p>
+<p># REDLOCAL    Dirección IP de la red local interna</p>
+<p># BCASTLOCAL    Dirección de Broadcast de la red local</p>
+<p># IFAZLOCAL    Nombre del interfaz de red local</p>
+<p># CUALQUIERA    Dirección de red 0.0.0.0</p>
+<p># IFAZEXT        Nombre del interfaz de red externo</p>
+<p># WEB        Dirección IP del servidor WEB</p>
+<p># FTP            Dirección IP del servidor FTP</p>
+<p># REDDMZ        Dirección IP de la red DMZ</p>
+<p># IFAZDMZ        Nombre del interfaz de red de la DMZ</p>
+<p># TCPLOCAL    Lista de puertos TCP que permitimos usar en la red local</p>
+<p># UDPLOCAL    Lista de puertos UDP que permitimos usar en la red local</p>
+<p>REDLOCAL = "192.168.1.0/24"</p>
+<p>BCASTLOCAL = "192.168.1.255"</p>
+<p>IFAZLOCAL = "eth0"</p>
+<p>CUALQUIERA = "0/0"</p>
+<p>IFAZEXT = "eth2"</p>
+<p>WEB = "192.168.2.2"</p>
+<p>FTP = "192.168.2.3"</p>
+<p>REDDMZ = "192.168.2.0/24"</p>
+<p>IFAZDMZ = "eth1"</p>
+<p>TCPLOCAL = "www,ftp,ftp-data,https"</p>
+<p>UDPLOCAL = "domain"</p>
+<p><code></code>###IMPLEMENTACIÓN###</p>
+<p># Borramos todas las reglas que pudiera haber anteriormente, y los contadores</p>
+<p>iptables -F</p>
+<p>iptables -t nat -F</p>
+<p>iptables -X         #borra las cadenas creadas por el usuario</p>
+<p>iptables -Z</p>
+<p># Cambiamos la política por defecto en todas las cadenas de la tabla filter</p>
+<p># Chain Policy -&gt; DROP</p>
+<p>iptables -P FORWARD DROP</p>
+<p>iptables -P INPUT DROP</p>
+<p>iptables -P OUTPUT DROP</p>
+<p># Permitimos que se acceda al cortafuegos por ssh</p>
+<p>iptables -A INPUT -s $REDLOCAL -p tcp --dport 22 -j ACCEPT</p>
+<p>iptables -A OUTPUT -d $REDLOCAL -p tcp --sport 22 -j ACCEPT</p>
+<h2 id="conexiones-tcp">CONEXIONES TCP</h2>
+<p># Permitimos las conexiones establecidas, desde la red externa y desde la DMZ hacia la red local en los puertos permitidos</p>
+<p>iptables -A FORWARD -d $REDLOCAL -p tcp  -m state --state ESTABLISHED -m multiport --sports $TCPLOCAL -j ACCEPT</p>
+<p># Permitimos el tráfico desde la red local hacia la red externa y hacia la DMZ en los puertos permitidos</p>
+<p>iptables -A FORWARD -s $REDLOCAL -p tcp -m multiport --dports $TCPLOCAL -j ACCEPT</p>
+<p># Permitimos el tráfico desde la red local y desde la red externa al servidor WEB  por el puerto 80</p>
+<p>iptables -A FORWARD -d $WEB -p tcp --dport 80 -j ACCEPT</p>
+<p># Permitimos las conexiones establecidas desde el servidor WEB a la red local y a la red externa</p>
+<p>iptables -A FORWARD -s $WEB -p tcp --sport 80 -m state --state ESTABLISHED -j ACCEPT</p>
+<p># Permitimos el tráfico desde la red local y desde la red externa al servidor FTP por el puerto 20 y 21</p>
+<p>iptables -A FORWARD -d $FTP -p tcp --dport 20:21 -j ACCEPT</p>
+<p># Permitimos las conexiones establecidas desde el servidor FTP a la red local y a la red externa</p>
+<p>iptables -A FORWARD -s $FTP -p tcp --sport 20:21 -m state --state ESTABLISHED -j ACCEPT</p>
+<p># Permitimos las conexiones relacionadas desde el servidor FTP a la red local y a la red externa</p>
+<p>iptables -A FORWARD -s $WEB -p tcp --sport 20:21 -m state --state RELATED -j ACCEPT</p>
+<h2 id="conexiones-udp">CONEXIONES UDP</h2>
+<p># Permitimos las conexiones establecidas desde la red externa hacia la red local en los puertos permitidos</p>
+<p>iptables -A FORWARD -d $REDLOCAL -i $IFAZEXT -p udp  -m state --state     ESTABLISHED -m multiport --sports $UDPLOCAL -j ACCEPT</p>
+<p># Permitimos el tráfico desde la red local hacia la red externa  en los puertos permitidos</p>
+<p>iptables -A FORWARD -s $REDLOCAL -o $IFAZEXT -p udp -m multiport --dports     $UDPLOCAL -j ACCEPT</p>
+<p>## Hacemos NAT para las máquinas de la red local y para las máquinas de la  DMZ</p>
+<p>iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE</p>
+<p># Si la dirección IP Pública fuera estática haríamos SNAT</p>
+<p>## Hacemos DNAT para que las peticiones que recibimos de Internet lleguen a los servidores</p>
+<p>iptables -t nat -A PREROUTING -i eth2 -p tcp --dport 80 -j DNAT --to-destination $WEB:80</p>
+<p>iptables -t nat -A PREROUTING -i eth2 -p tcp –dport 20 -j DNAT --to-destination $FTP:20</p>
+<p><code></code><strong>Updated:</strong> September 28, 2022</p>
+<p>Enter your search term... </p>
+<ul>
+<li><a name="footer"></a><a href="https://fp.josedomingo.org/feed.xml">**   Feed</a></li>
+</ul>
+<p>© 2022 José Domingo Muñoz. Powered by <a href="https://jekyllrb.com/">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/">Minimal Mistakes</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Maite Martí - Xuso Ortí - Professors Departament d'Informàtica IES Jaume II el Just (Tavernes de la Valldigna)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.copy", "content.code.annotate", "content.code.select", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+    
+  </body>
+</html>

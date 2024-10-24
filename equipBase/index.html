@@ -1,0 +1,1488 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>equipBase - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-actualitzacions-de-sistema-operatiu-i-programari" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href=".." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-header__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
+      
+  <img src="../img/logocap.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              equipBase
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format oscur"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Format oscur" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format clar"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Format clar" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestanyes" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Inici
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manuals/" class="md-tabs__link">
+          
+  
+  Manuals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../instalar_gns3_primer_escenari/" class="md-tabs__link">
+          
+  
+  GNS3
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../criptografia/" class="md-tabs__link">
+          
+  
+  Criptografía
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ssh/" class="md-tabs__link">
+          
+  
+  SSH
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-nav__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
+      
+  <img src="../img/logocap.png" alt="logo">
+
+    </a>
+    BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inici
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Manuals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Manuals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manuals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guíes i manuals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    GNS3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            GNS3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instalar_gns3_primer_escenari/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació de GNS3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crear_appliances/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crear appliances
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Criptografía
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Criptografía
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../criptografia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prac_T2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pràctiques del tema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apunts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apunts complementaris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    SSH
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apunts SSH
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apunts SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connexio_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connexió SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xifrats_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xifrats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pràctiques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardering_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardering SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh_2fa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2FA SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sshaudit24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH-Audit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh_guard2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH-Guard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fail2ban_telegram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fail2ban i Telegram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh_cert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accés remot amb certificats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-actualitzacions-de-sistema-operatiu-i-programari" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Actualitzacions de Sistema Operatiu i Programari
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Actualitzacions de Sistema Operatiu i Programari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-corregir-vulnerabilitats-i-millorar-la-seguretat-general-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Corregir vulnerabilitats i millorar la seguretat general del sistema.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-us-dun-tallafocs-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Ús d'un Tallafocs (Firewall)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Ús d'un Tallafocs (Firewall)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-filtrar-el-trafic-de-xarxa-no-desitjat-i-prevenir-atacs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Filtrar el tràfic de xarxa no desitjat i prevenir atacs.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuracio-de-politiques-de-contrassenya-segures" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Configuració de Polítiques de Contrassenya Segures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Configuració de Polítiques de Contrassenya Segures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-augmentar-la-complexitat-i-seguretat-de-les-contrasenyes-utilitzades-en-el-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Augmentar la complexitat i seguretat de les contrasenyes utilitzades en el sistema.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-fer-ho" class="md-nav__link">
+    <span class="md-ellipsis">
+      Com fer-ho:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-gestio-de-privilegis-dusuaris" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Gestió de Privilegis d'Usuaris
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Gestió de Privilegis d'Usuaris">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-reduir-lacces-innecessari-als-recursos-i-funcionalitats-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Reduir l’accés innecessari als recursos i funcionalitats del sistema.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-fer-ho_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Com fer-ho:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-desactivacio-de-serveis-i-ports-innecessaris" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Desactivació de Serveis i Ports Innecessaris
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Desactivació de Serveis i Ports Innecessaris">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-reduir-la-superficie-datac-desactivant-serveis-no-utilitzats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Reduir la superfície d'atac desactivant serveis no utilitzats.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-fer-ho_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Com fer-ho:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-xifrat-de-disc-dur-i-fitxers" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Xifrat de Disc Dur i Fitxers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Xifrat de Disc Dur i Fitxers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-protegir-les-dades-en-cas-de-robatori-o-acces-no-autoritzat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Protegir les dades en cas de robatori o accés no autoritzat.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-antivirus-i-anti-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Antivirus i Anti-Malware
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Antivirus i Anti-Malware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-defensar-el-sistema-contra-programari-malicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Defensar el sistema contra programari maliciós.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-activacio-de-lautenticacio-multifactor-mfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Activació de l'Autenticació Multifactor (MFA)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Activació de l'Autenticació Multifactor (MFA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-afegir-una-capa-addicional-de-seguretat-als-comptes-dacces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Afegir una capa addicional de seguretat als comptes d'accés.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-fer-ho_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Com fer-ho:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-auditoria-de-logs-i-monitoratge-de-seguretat" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Auditoria de Logs i Monitoratge de Seguretat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Auditoria de Logs i Monitoratge de Seguretat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-revisar-els-esdeveniments-de-seguretat-i-detectar-comportaments-sospitosos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Revisar els esdeveniments de seguretat i detectar comportaments sospitosos.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-copies-de-seguretat-regulars" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Còpies de Seguretat Regulars
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Còpies de Seguretat Regulars">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-garantir-la-recuperacio-de-dades-en-cas-de-fallada-o-atac" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Garantir la recuperació de dades en cas de fallada o atac.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-fer-ho_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Com fer-ho:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-bloqueig-de-lequip-i-proteccio-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Bloqueig de l'Equip i Protecció Física
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Bloqueig de l'Equip i Protecció Física">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-evitar-acces-fisic-no-autoritzat-a-lequip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Evitar accés físic no autoritzat a l'equip.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-proteccio-de-xarxa-vpn-i-segmentacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Protecció de Xarxa: VPN i Segmentació
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Protecció de Xarxa: VPN i Segmentació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-mantenir-les-connexions-segures-i-separar-diferents-parts-de-la-xarxa-per-minimitzar-limpacte-dun-atac" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Mantenir les connexions segures i separar diferents parts de la xarxa per minimitzar l'impacte d'un atac.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-desactivacio-de-scripts-i-maquinari-innecessaris" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Desactivació de Scripts i Maquinari Innecessaris
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Desactivació de Scripts i Maquinari Innecessaris">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectiu-evitar-que-funcions-o-dispositius-no-utilitzats-es-converteixin-en-vectors-datac" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectiu: Evitar que funcions o dispositius no utilitzats es converteixin en vectors d'atac.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>equipBase</h1>
+
+<p><strong>Tutorial de Fortificació de l'Equip Base en Seguretat Informàtica</strong></p>
+<p>La fortificació d’un equip base és una estratègia fonamental en la seguretat informàtica per reduir la superfície d'atac i protegir el sistema de possibles vulnerabilitats. Aquí et presento una guia pas a pas per millorar la seguretat d’un sistema:</p>
+<h3 id="1-actualitzacions-de-sistema-operatiu-i-programari">1. <strong>Actualitzacions de Sistema Operatiu i Programari</strong></h3>
+<h4 id="objectiu-corregir-vulnerabilitats-i-millorar-la-seguretat-general-del-sistema"><strong>Objectiu:</strong> Corregir vulnerabilitats i millorar la seguretat general del sistema.</h4>
+<ul>
+<li><strong>Windows:</strong> Activa les actualitzacions automàtiques o verifica manualment les actualitzacions a Configuració &gt; Actualització i seguretat.</li>
+<li><strong>Linux:</strong> Executa comandes com <code>sudo apt update &amp;&amp; sudo apt upgrade</code> (en sistemes basats en Debian) o <code>dnf update</code> (en Red Hat/Fedora) per mantenir el sistema al dia.</li>
+<li><strong>macOS:</strong> Vés a Preferències del sistema &gt; Actualització de programari per garantir que tens les darreres versions instal·lades.</li>
+</ul>
+<h3 id="2-us-dun-tallafocs-firewall">2. <strong>Ús d'un Tallafocs (Firewall)</strong></h3>
+<h4 id="objectiu-filtrar-el-trafic-de-xarxa-no-desitjat-i-prevenir-atacs"><strong>Objectiu:</strong> Filtrar el tràfic de xarxa no desitjat i prevenir atacs.</h4>
+<ul>
+<li><strong>Windows:</strong> Configura el tallafocs a la secció de Configuració &gt; Actualització i seguretat &gt; Tallafocs.</li>
+<li><strong>Linux:</strong> Activa i configura <code>ufw</code> (Uncomplicated Firewall) amb comandes com <code>sudo ufw enable</code> i defineix les regles de tràfic.</li>
+<li><strong>macOS:</strong> Activa el tallafocs a Preferències del sistema &gt; Seguretat i privacitat &gt; Tallafocs.</li>
+</ul>
+<h3 id="3-configuracio-de-politiques-de-contrassenya-segures">3. <strong>Configuració de Polítiques de Contrassenya Segures</strong></h3>
+<h4 id="objectiu-augmentar-la-complexitat-i-seguretat-de-les-contrasenyes-utilitzades-en-el-sistema"><strong>Objectiu:</strong> Augmentar la complexitat i seguretat de les contrasenyes utilitzades en el sistema.</h4>
+<ul>
+<li><strong>Estableix requisits de complexitat:</strong> Minimitza l’ús de contrasenyes fàcils. Opta per requisits de longitud mínima i ús de majúscules, minúscules, números i caràcters especials.</li>
+<li><strong>Activa l'expiració de contrasenyes:</strong> Revisa i canvia les contrasenyes periòdicament.</li>
+</ul>
+<h4 id="com-fer-ho"><strong>Com fer-ho:</strong></h4>
+<ul>
+<li><strong>Windows:</strong> Configura polítiques de contrasenya a Configuració &gt; Comptes &gt; Opcions d'inici de sessió.</li>
+<li><strong>Linux:</strong> Edita fitxers com <code>/etc/login.defs</code> i utilitza <code>chage</code> per establir límits de caducitat de contrasenya.</li>
+</ul>
+<h3 id="4-gestio-de-privilegis-dusuaris">4. <strong>Gestió de Privilegis d'Usuaris</strong></h3>
+<h4 id="objectiu-reduir-lacces-innecessari-als-recursos-i-funcionalitats-del-sistema"><strong>Objectiu:</strong> Reduir l’accés innecessari als recursos i funcionalitats del sistema.</h4>
+<ul>
+<li><strong>Utilitza comptes d’usuari limitats:</strong> Les tasques diàries han de realitzar-se amb comptes d’usuari amb privilegis mínims. Només utilitza comptes d'administrador per tasques de manteniment.</li>
+</ul>
+<h4 id="com-fer-ho_1"><strong>Com fer-ho:</strong></h4>
+<ul>
+<li><strong>Windows:</strong> Configura permisos a Configuració &gt; Comptes &gt; Família i altres usuaris.</li>
+<li><strong>Linux:</strong> Fes servir <code>sudo</code> per accedir als permisos administratius de manera temporal.</li>
+</ul>
+<h3 id="5-desactivacio-de-serveis-i-ports-innecessaris">5. <strong>Desactivació de Serveis i Ports Innecessaris</strong></h3>
+<h4 id="objectiu-reduir-la-superficie-datac-desactivant-serveis-no-utilitzats"><strong>Objectiu:</strong> Reduir la superfície d'atac desactivant serveis no utilitzats.</h4>
+<h4 id="com-fer-ho_2"><strong>Com fer-ho:</strong></h4>
+<ul>
+<li><strong>Windows:</strong> Utilitza el gestor de serveis (<code>services.msc</code>) per aturar serveis innecessaris.</li>
+<li><strong>Linux:</strong> Fes servir <code>systemctl</code> o <code>service</code> per revisar i desactivar serveis inactius: <code>sudo systemctl disable servei</code>.</li>
+</ul>
+<h3 id="6-xifrat-de-disc-dur-i-fitxers">6. <strong>Xifrat de Disc Dur i Fitxers</strong></h3>
+<h4 id="objectiu-protegir-les-dades-en-cas-de-robatori-o-acces-no-autoritzat"><strong>Objectiu:</strong> Protegir les dades en cas de robatori o accés no autoritzat.</h4>
+<ul>
+<li><strong>Windows:</strong> Utilitza BitLocker per xifrar el disc dur completament.</li>
+<li><strong>Linux:</strong> Utilitza LUKS (<code>cryptsetup luksFormat</code>) per xifrar volums de disc.</li>
+<li><strong>macOS:</strong> Activa FileVault a Preferències del sistema &gt; Seguretat i privacitat &gt; FileVault.</li>
+</ul>
+<h3 id="7-antivirus-i-anti-malware">7. <strong>Antivirus i Anti-Malware</strong></h3>
+<h4 id="objectiu-defensar-el-sistema-contra-programari-malicios"><strong>Objectiu:</strong> Defensar el sistema contra programari maliciós.</h4>
+<ul>
+<li><strong>Windows:</strong> Activa Windows Defender o utilitza una altra solució antivirus de confiança.</li>
+<li><strong>Linux:</strong> Encara que no és tan comú, utilitza eines com <code>ClamAV</code> per escanejar el sistema.</li>
+<li><strong>macOS:</strong> Complementa amb solucions antivirus comercials o gratuïtes, segons convingui.</li>
+</ul>
+<h3 id="8-activacio-de-lautenticacio-multifactor-mfa">8. <strong>Activació de l'Autenticació Multifactor (MFA)</strong></h3>
+<h4 id="objectiu-afegir-una-capa-addicional-de-seguretat-als-comptes-dacces"><strong>Objectiu:</strong> Afegir una capa addicional de seguretat als comptes d'accés.</h4>
+<ul>
+<li>Activa MFA en comptes d'administrador i serveis en línia importants com correu electrònic, VPN, etc.</li>
+</ul>
+<h4 id="com-fer-ho_3"><strong>Com fer-ho:</strong></h4>
+<ul>
+<li><strong>Windows:</strong> Usa l'opció de Windows Hello per activar MFA (empremta digital, reconeixement facial).</li>
+<li><strong>Linux:</strong> Configura Google Authenticator o altres aplicacions de MFA amb PAM (Pluggable Authentication Modules).</li>
+</ul>
+<h3 id="9-auditoria-de-logs-i-monitoratge-de-seguretat">9. <strong>Auditoria de Logs i Monitoratge de Seguretat</strong></h3>
+<h4 id="objectiu-revisar-els-esdeveniments-de-seguretat-i-detectar-comportaments-sospitosos"><strong>Objectiu:</strong> Revisar els esdeveniments de seguretat i detectar comportaments sospitosos.</h4>
+<ul>
+<li><strong>Linux:</strong> Configura el sistema per registrar esdeveniments amb <code>rsyslog</code> o eines com <code>auditd</code>.</li>
+<li><strong>Windows:</strong> Activa els logs d’esdeveniments des de l'Administrador d'esdeveniments i configura polítiques per arxivar esdeveniments importants.</li>
+</ul>
+<h3 id="10-copies-de-seguretat-regulars">10. <strong>Còpies de Seguretat Regulars</strong></h3>
+<h4 id="objectiu-garantir-la-recuperacio-de-dades-en-cas-de-fallada-o-atac"><strong>Objectiu:</strong> Garantir la recuperació de dades en cas de fallada o atac.</h4>
+<ul>
+<li><strong>Implementa la regla 3-2-1:</strong> Realitza tres còpies de seguretat, utilitzant dos tipus de suports diferents, i guarda una còpia fora de les instal·lacions.</li>
+</ul>
+<h4 id="com-fer-ho_4"><strong>Com fer-ho:</strong></h4>
+<ul>
+<li><strong>Windows:</strong> Configura l'historial de fitxers o utilitza eines externes com Acronis o Veeam.</li>
+<li><strong>Linux:</strong> Utilitza eines com <code>rsync</code>, <code>timeshift</code>, o solucions de còpies de seguretat com Bacula.</li>
+<li><strong>macOS:</strong> Utilitza Time Machine per fer còpies de seguretat automàtiques.</li>
+</ul>
+<h3 id="11-bloqueig-de-lequip-i-proteccio-fisica">11. <strong>Bloqueig de l'Equip i Protecció Física</strong></h3>
+<h4 id="objectiu-evitar-acces-fisic-no-autoritzat-a-lequip"><strong>Objectiu:</strong> Evitar accés físic no autoritzat a l'equip.</h4>
+<ul>
+<li><strong>Windows/Linux/macOS:</strong> Configura el sistema perquè es bloquegi automàticament després d’un període d'inactivitat.</li>
+</ul>
+<h3 id="12-proteccio-de-xarxa-vpn-i-segmentacio">12. <strong>Protecció de Xarxa: VPN i Segmentació</strong></h3>
+<h4 id="objectiu-mantenir-les-connexions-segures-i-separar-diferents-parts-de-la-xarxa-per-minimitzar-limpacte-dun-atac"><strong>Objectiu:</strong> Mantenir les connexions segures i separar diferents parts de la xarxa per minimitzar l'impacte d'un atac.</h4>
+<ul>
+<li><strong>Configura una VPN:</strong> Per accedir de manera segura a recursos remots.</li>
+<li><strong>Utilitza una xarxa segmentada:</strong> Aïlla dispositius menys segurs en segments de xarxa separats.</li>
+</ul>
+<h3 id="13-desactivacio-de-scripts-i-maquinari-innecessaris">13. <strong>Desactivació de Scripts i Maquinari Innecessaris</strong></h3>
+<h4 id="objectiu-evitar-que-funcions-o-dispositius-no-utilitzats-es-converteixin-en-vectors-datac"><strong>Objectiu:</strong> Evitar que funcions o dispositius no utilitzats es converteixin en vectors d'atac.</h4>
+<ul>
+<li><strong>Desactiva dispositius no utilitzats:</strong> Com unitats de disquet, ports USB o serveis de xarxa sense ús.</li>
+</ul>
+<hr />
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Maite Martí - Xuso Ortí - Professors Departament d'Informàtica IES Jaume II el Just (Tavernes de la Valldigna)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "content.code.copy", "content.code.annotate", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+    
+  </body>
+</html>
