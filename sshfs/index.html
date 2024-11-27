@@ -1,0 +1,1721 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ssh_cert/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>SSHFS - Sistema remot d'arxius - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sshfs" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href=".." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-header__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
+      
+  <img src="../img/logocap.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SSHFS - Sistema remot d'arxius
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format oscur"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Format oscur" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format clar"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Format clar" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestanyes" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Inici
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manuals/" class="md-tabs__link">
+          
+  
+  Manuals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../instalar_gns3_primer_escenari/" class="md-tabs__link">
+          
+  
+  GNS3
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../criptografia/" class="md-tabs__link">
+          
+  
+  Criptografía
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ssh/" class="md-tabs__link">
+          
+  
+  SSH
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-nav__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
+      
+  <img src="../img/logocap.png" alt="logo">
+
+    </a>
+    BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inici
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Manuals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Manuals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manuals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guíes i manuals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    GNS3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            GNS3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instalar_gns3_primer_escenari/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació de GNS3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crear_appliances/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Crear appliances
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Criptografía
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Criptografía
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../criptografia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prac_T2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pràctiques del tema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apunts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apunts complementaris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    SSH
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apunts SSH
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apunts SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connexio_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connexió SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xifrats_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Xifrats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pràctiques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardering_ssh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardering SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh_2fa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2FA SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sshaudit24/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH-Audit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh_guard2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH-Guard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fail2ban_telegram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fail2ban i Telegram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh_cert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accés remot amb certificats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SSHFS - Sistema remot d'arxius
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    SSHFS - Sistema remot d'arxius
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sshfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSHFS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practica-muntar-un-ssh-filesystem-remot-i-accedir-des-de-maquines-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pràctica: Muntar un SSH Filesystem remot i accedir des de màquines clients
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pràctica: Muntar un SSH Filesystem remot i accedir des de màquines clients">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requeriments-previs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requeriments previs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procediment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procediment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Procediment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configurar-el-servidor-remot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar el servidor remot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installar-i-configurar-sshfs-al-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instal·lar i configurar SSHFS al client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validar-el-muntatge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validar el muntatge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desmuntar-el-sistema-de-fitxers" class="md-nav__link">
+    <span class="md-ellipsis">
+      ** Desmuntar el sistema de fitxers**
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasques-complementaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tasques complementàries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tasques complementàries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configurar-claus-ssh-per-evitar-utilitzar-contrasenyes-repetides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar claus SSH per evitar utilitzar contrasenyes repetides:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#muntatge-de-forma-permanent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Muntatge de forma permanent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Muntatge de forma permanent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procediment_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procediment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Procediment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificar-que-sshfs-funciona-manualment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar que SSHFS funciona manualment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-un-punt-de-muntatge-permanent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear un punt de muntatge permanent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-les-credencials-opcional-pero-recomanat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar les credencials (opcional, però recomanat)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificar-el-fitxer-etcfstab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modificar el fitxer /etc/fstab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provar-el-muntatge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provar el muntatge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resoldre-problemes-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resoldre problemes comuns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sshfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSHFS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practica-muntar-un-ssh-filesystem-remot-i-accedir-des-de-maquines-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pràctica: Muntar un SSH Filesystem remot i accedir des de màquines clients
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pràctica: Muntar un SSH Filesystem remot i accedir des de màquines clients">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requeriments-previs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requeriments previs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procediment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procediment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Procediment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configurar-el-servidor-remot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar el servidor remot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installar-i-configurar-sshfs-al-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instal·lar i configurar SSHFS al client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validar-el-muntatge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validar el muntatge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desmuntar-el-sistema-de-fitxers" class="md-nav__link">
+    <span class="md-ellipsis">
+      ** Desmuntar el sistema de fitxers**
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasques-complementaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tasques complementàries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tasques complementàries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configurar-claus-ssh-per-evitar-utilitzar-contrasenyes-repetides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar claus SSH per evitar utilitzar contrasenyes repetides:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#muntatge-de-forma-permanent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Muntatge de forma permanent
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Muntatge de forma permanent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procediment_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procediment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Procediment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificar-que-sshfs-funciona-manualment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar que SSHFS funciona manualment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-un-punt-de-muntatge-permanent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear un punt de muntatge permanent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-les-credencials-opcional-pero-recomanat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar les credencials (opcional, però recomanat)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificar-el-fitxer-etcfstab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modificar el fitxer /etc/fstab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provar-el-muntatge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provar el muntatge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resoldre-problemes-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resoldre problemes comuns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>SSHFS - Sistema remot d'arxius</h1>
+
+<h2 id="sshfs">SSHFS</h2>
+<p><img alt="sshfs" src="../img/sshfs.webp" /></p>
+<p>SSHFS (Secure SHell FileSystem) és un sistema de fitxers basat en FUSE (Filesystem in Userspace) que permet muntar un directori remot a través de SSH i treballar amb ell com si fos part del sistema de fitxers local. Amb SSHFS, pots accedir, modificar i gestionar fitxers d'una màquina remota sense necessitat de copiar-los al sistema local, utilitzant el protocol de Secure Shell (SSH) per garantir la seguretat.</p>
+<h2 id="practica-muntar-un-ssh-filesystem-remot-i-accedir-des-de-maquines-clients">Pràctica: Muntar un SSH Filesystem remot i accedir des de màquines clients</h2>
+<p><strong>Objectius</strong>  </p>
+<ul>
+<li>Configurar un servidor SSH per permetre l'accés a fitxers de manera remota.  </li>
+<li>Muntar el sistema de fitxers remot en una màquina client utilitzant <strong>SSHFS</strong>.  </li>
+<li>Treballar amb fitxers remots com si estigueren en un directori local.  </li>
+</ul>
+<hr />
+<h3 id="requeriments-previs"><strong>Requeriments previs</strong></h3>
+<p><strong>Servidor remot</strong>:</p>
+<ul>
+<li>Accés a un servidor amb SSH configurat.</li>
+<li>Instal·lat el paquet necessari per al servei SSH (habitualment <code>openssh-server</code>).</li>
+</ul>
+<p><strong>Client</strong>:</p>
+<ul>
+<li>Sistema operatiu Linux/Unix.</li>
+<li>Paquet <code>sshfs</code> instal·lat.</li>
+</ul>
+<hr />
+<h3 id="procediment"><strong>Procediment</strong></h3>
+<h4 id="configurar-el-servidor-remot">Configurar el servidor remot</h4>
+<ul>
+<li><strong>Assegurar-se que el servei SSH està actiu</strong>:</li>
+</ul>
+<p>Instal·lar el servidor SSH si no està disponible:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openssh-server
+</span></code></pre></div></td></tr></table></div>
+<p>Activar i assegurar-se que el servei està funcionant:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>ssh
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>ssh
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>ssh
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Crear un usuari per a accés remot</strong>:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo<span class="w"> </span>adduser<span class="w"> </span>usuari_remot
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Configurar permisos i seguretat</strong> (opcional):</li>
+</ul>
+<p>Editar el fitxer <code>/etc/ssh/sshd_config</code> per assegurar-se que permet connexions:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>PermitRootLogin no
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>PasswordAuthentication yes
+</span></code></pre></div></td></tr></table></div>
+<p>Reiniciar el servei SSH per aplicar els canvis:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h4 id="installar-i-configurar-sshfs-al-client">Instal·lar i configurar SSHFS al client</h4>
+<ul>
+<li><strong>Instal·lar SSHFS</strong>:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>sshfs
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p><strong>Crear un punt de muntatge</strong>:</p>
+<ul>
+<li>
+<p>Triar un directori local on es muntarà el sistema de fitxers remot:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ssh_remot
+</span></code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Muntar el sistema de fitxers remot</strong>:</p>
+<ul>
+<li>
+<p>Utilitzar SSHFS per muntar el directori remot al punt local:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>sshfs<span class="w"> </span>usuari_remot@IP_SERVIDOR:/directori/remot<span class="w"> </span>~/ssh_remot
+</span></code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>Exemple:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>sshfs<span class="w"> </span>usuari_remot@192.168.1.100:/home/usuari_remot<span class="w"> </span>~/ssh_remot
+</span></code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4 id="validar-el-muntatge">Validar el muntatge</h4>
+<p>Comprovar que el directori està muntat:</p>
+<p><div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>df<span class="w"> </span>-h
+</span></code></pre></div></td></tr></table></div>
+   Hauria d'aparèixer una línia que indique el muntatge mitjançant SSHFS.</p>
+<p>Navegar pel sistema de fitxers remot com si fos local:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>~/ssh_remot
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>ls
+</span></code></pre></div></td></tr></table></div>
+<p>Crear, editar i eliminar fitxers per comprovar l'accés:
+   <div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>touch<span class="w"> </span>prova.txt
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hola món remot!&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>prova.txt
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a>cat<span class="w"> </span>prova.txt
+</span></code></pre></div></td></tr></table></div></p>
+<hr />
+<h4 id="desmuntar-el-sistema-de-fitxers">** Desmuntar el sistema de fitxers**</h4>
+<ul>
+<li>Una vegada finalitzada la sessió, desmuntar el directori:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>fusermount<span class="w"> </span>-u<span class="w"> </span>~/ssh_remot
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="tasques-complementaries">Tasques complementàries</h3>
+<h4 id="configurar-claus-ssh-per-evitar-utilitzar-contrasenyes-repetides">Configurar claus SSH per evitar utilitzar contrasenyes repetides:</h4>
+<p>Generar una clau SSH al client:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Copiar la clau pública al servidor:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a>ssh-copy-id<span class="w"> </span>usuari_remot@IP_SERVIDOR
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>Fer el muntatge automàtic afegint una entrada a <code>/etc/fstab</code> (opcional i avançat).</li>
+</ul>
+<hr />
+<h2 id="muntatge-de-forma-permanent">Muntatge de forma permanent</h2>
+<div class="admonition info">
+<p class="admonition-title">FSTAB</p>
+<p>Utilitzar <strong>fstab</strong> permet muntar el sistema de fitxers SSHFS automàticament cada vegada que l'equip client inicia.</p>
+</div>
+<hr />
+<h3 id="procediment_1">Procediment</h3>
+<h4 id="verificar-que-sshfs-funciona-manualment">Verificar que SSHFS funciona manualment</h4>
+<p>Abans d'afegir una entrada a <code>fstab</code>, assegura't que pots muntar el sistema de fitxers remot manualment:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a>sshfs<span class="w"> </span>usuari_remot@IP_SERVIDOR:/directori/remot<span class="w"> </span>~/ssh_remot
+</span></code></pre></div></td></tr></table></div>
+<p>Si això funciona correctament, pots continuar amb la configuració a <code>fstab</code>.</p>
+<hr />
+<h4 id="crear-un-punt-de-muntatge-permanent">Crear un punt de muntatge permanent</h4>
+<p>Defineix un directori en el sistema local que sempre serà el punt de muntatge:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ssh_remot
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h4 id="configurar-les-credencials-opcional-pero-recomanat">Configurar les credencials (opcional, però recomanat)</h4>
+<p>Hauràs realitzat abans aquest pas, però el posem ací també a mode de tutorial. Ens evitem haver d'introduir la contrasenya.</p>
+<ul>
+<li>Genera una clau SSH al client:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>Copia la clau pública al servidor:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a>ssh-copy-id<span class="w"> </span>usuari_remot@IP_SERVIDOR
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>Prova l'accés sense contrasenya:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a>ssh<span class="w"> </span>usuari_remot@IP_SERVIDOR
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h4 id="modificar-el-fitxer-etcfstab">Modificar el fitxer <code>/etc/fstab</code></h4>
+<ul>
+<li>Obre el fitxer <code>/etc/fstab</code> amb permisos d'administrador:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/fstab
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>Afegeix una línia al fitxer per configurar el muntatge automàtic amb SSHFS:</li>
+</ul>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a>usuari_remot@IP_SERVIDOR:/directori/remot  /home/usuari/ssh_remot  fuse.sshfs  defaults,_netdev,user,idmap=user,IdentityFile=/home/usuari/.ssh/id_rsa,allow_other  0  0
+</span></code></pre></div></td></tr></table></div>
+<p><strong>usuari_remot</strong>: el nom de l'usuari al servidor remot.
+<strong>IP_SERVIDOR</strong>: l'adreça IP del servidor remot.
+<strong>/directori/remot</strong>: el directori al servidor remot que vols muntar.
+<strong>/home/usuari/ssh_remot</strong>: el punt de muntatge local.
+<strong>idmap=user</strong>: manté els permisos d'usuari.
+<strong>IdentityFile</strong>: especifica la ruta de la clau SSH (si l'utilitzes).
+<strong>allow_other</strong>: permet que altres usuaris al sistema accedeixin al muntatge (opcional).</p>
+<hr />
+<h4 id="provar-el-muntatge">Provar el muntatge</h4>
+<p>Força el muntatge de l'entrada a <code>fstab</code> sense reiniciar:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a>sudo<span class="w"> </span>mount<span class="w"> </span>-a
+</span></code></pre></div></td></tr></table></div>
+<p>Comprova si el sistema de fitxers està muntat:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1"></a>df<span class="w"> </span>-h
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h4 id="resoldre-problemes-comuns">Resoldre problemes comuns</h4>
+<ul>
+<li>Si tens problemes perquè el muntatge depèn de la connexió de xarxa, afegeix l'opció <code>_netdev</code> a l'entrada de <code>fstab</code>. Aquesta opció assegura que el muntatge només es fa quan la xarxa està activa:</li>
+</ul>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1"></a>defaults,_netdev
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>Si l'usuari no té permisos per muntar el sistema de fitxers, afegeix l'opció <code>user</code> per permetre als usuaris no root muntar-lo:</li>
+</ul>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1"></a>defaults,_netdev,user
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">allow-other</p>
+<ul>
+<li>Recorda que <strong><code>allow_other</code></strong> només funcionarà si tens habilitat aquesta opció a <strong>FUSE</strong>. </li>
+</ul>
+</div>
+<p>Edita <code>/etc/fuse.conf</code> i descomenta:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1"></a>user_allow_other
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">Resultat</p>
+<p>Després de configurar <code>fstab</code>, el sistema muntarà automàticament el directori remot mitjançant SSHFS en cada arrencada, i el punt de muntatge estarà disponible al directori definit. Això és útil per garantir un accés remot consistent i automatitzat als recursos del servidor.</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Peu de pàgina" >
+        
+          
+          <a href="../ssh_cert/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Accés remot amb certificats">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Accés remot amb certificats
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Maite Martí - Xuso Ortí - Professors Departament d'Informàtica IES Jaume II el Just (Tavernes de la Valldigna)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "content.code.copy", "content.code.annotate", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+    
+  </body>
+</html>
