@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../manual_iptables/">
+        <link rel="prev" href="../editar_gpo/">
       
-      
-        <link rel="next" href="../practiquesBase/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>Reducció serveis - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
+        <title>GPOs interesants - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
       
     
     
@@ -75,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#canviar-port-rdp" class="md-skip">
+        <a href="#gpos-relacionades-eamb-la-seguretat" class="md-skip">
           Salta el contingut
         </a>
       
@@ -108,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reducció serveis
+              GPOs interesants
             
           </span>
         </div>
@@ -1225,28 +1223,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Reducció serveis
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../reduir_serveis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1255,42 +1235,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Taula de continguts
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#canviar-port-rdp" class="md-nav__link">
-    <span class="md-ellipsis">
-      Canviar port RDP
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deshabilitar-ipv6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deshabilitar IPv6
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1363,19 +1307,21 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2_5" id="__nav_6_2_5_label" tabindex="0">
@@ -1389,7 +1335,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2_5">
             <span class="md-nav__icon md-icon"></span>
             Active Directory
@@ -1442,10 +1388,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../active_directory/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    GPOs interesants
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1454,6 +1418,138 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gpos-relacionades-eamb-la-seguretat" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPOs relacionades eamb la seguretat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GPOs relacionades eamb la seguretat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-politica-de-contrasenyes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Política de contrasenyes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-politica-de-bloqueig-de-comptes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Política de bloqueig de comptes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-politica-dauditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Política d'auditoria:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-politica-de-proteccio-de-comptes-privilegiats" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Política de protecció de comptes privilegiats:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-politica-de-seguretat-de-la-xarxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Política de seguretat de la xarxa:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-politica-de-proteccio-dels-dispositius" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Política de protecció dels dispositius:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-politica-de-gestio-dactualitzacions-i-pegats" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Política de gestió d'actualitzacions i pegats:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-politica-descriptori-remot" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Política d'escriptori remot:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-politica-de-restriccions-dexecucio-de-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Política de restriccions d'execució de scripts:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-politica-de-seguretat-en-el-registre" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Política de seguretat en el registre:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revisions-continues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revisions contínues:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1507,20 +1603,116 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#canviar-port-rdp" class="md-nav__link">
+  <a href="#gpos-relacionades-eamb-la-seguretat" class="md-nav__link">
     <span class="md-ellipsis">
-      Canviar port RDP
+      GPOs relacionades eamb la seguretat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GPOs relacionades eamb la seguretat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-politica-de-contrasenyes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Política de contrasenyes:
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#deshabilitar-ipv6" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2-politica-de-bloqueig-de-comptes" class="md-nav__link">
     <span class="md-ellipsis">
-      Deshabilitar IPv6
+      2. Política de bloqueig de comptes:
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-politica-dauditoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Política d'auditoria:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-politica-de-proteccio-de-comptes-privilegiats" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Política de protecció de comptes privilegiats:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-politica-de-seguretat-de-la-xarxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Política de seguretat de la xarxa:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-politica-de-proteccio-dels-dispositius" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Política de protecció dels dispositius:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-politica-de-gestio-dactualitzacions-i-pegats" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Política de gestió d'actualitzacions i pegats:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-politica-descriptori-remot" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Política d'escriptori remot:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-politica-de-restriccions-dexecucio-de-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Política de restriccions d'execució de scripts:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-politica-de-seguretat-en-el-registre" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Política de seguretat en el registre:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revisions-continues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revisions contínues:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1539,47 +1731,134 @@
                   
 
 
-  <h1>Reducció serveis</h1>
+  <h1>GPOs interesants</h1>
 
-<p><img alt="1" src="../img_br/img1.21.png" /></p>
-<ol>
-<li>Desactivem la detecció de xarxes i guardem els canvis:
-<img alt="2" src="../img_br/img1.20.png" /></li>
-</ol>
-<h2 id="canviar-port-rdp">Canviar port RDP</h2>
-<p>En aquest cas no bloquejarem el port, simplement el canviem a un altre per evitar la seva enumeració per part d'un atacant.</p>
-<p>Si fem una cerca de ports (nmap) sobre un equip concret, veiem com el port <strong>3389/tcp</strong> està obert (WBT - Windows Based Terminal).</p>
-<p><img alt="Ports Oberts" src="../img_br/escaneo_rdp.PNG" /></p>
-<p>Anem a reconfigurar-lo, primer accedim a la finestra d'Executar amb <strong>Windows + R</strong> i escrivim <strong>regedit</strong>:</p>
-<p><img alt="Regedit 2" src="../img_br/img0.6.png" /></p>
-<p>Amb això, accedirem a l'<strong>Editor del Registre</strong> del nostre equip:</p>
-<p><img alt="Editor de registre 2" src="../img_br/img1.6.png" /></p>
-<p>Un cop dins, anirem a la següent ruta:</p>
-<p><strong>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp</strong></p>
-<p><img alt="Accedint a RDP-Tcp" src="../img_br/img12.1.png" /></p>
-<p>Ara cerquem l'entrada <strong>PortNumber</strong>, fem botó dret &gt; Modificar.</p>
-<p><img alt="Editant PortNumber" src="../img_br/img13.png" /></p>
-<p>I canviem el port pel que nosaltres vulguem, per exemple: 5151 i guardem. Perquè els canvis tinguin efecte cal reiniciar l'equip.</p>
-<p><img alt="Canviant port 5151" src="../img_br/img14.png" /></p>
-<p>Ara, si algú vol connectar-se per RDP al nostre ordinador haurà d'especificar el port que hem definit per poder accedir.</p>
-<p>Anem a comprovar que els canvis han tingut efecte, així que repetim la cerca de ports (nmap):</p>
-<p><img alt="Escanejar ports amb nmap" src="../img_br/escaneo_rdp1.PNG" /></p>
-<p>Veiem que ja no apareix el port <strong>3389/tcp.</strong></p>
-<p>Si fem una cerca de ports més intensiva, veurem que ara el port 5151/tcp apareix com a obert.</p>
-<p><img alt="Escaneig de ports intensiu" src="../img_br/escaneo_rdp2.PNG" /></p>
-<hr />
-<h2 id="deshabilitar-ipv6">Deshabilitar IPv6</h2>
-<p>Per deshabilitar IPv6 hem d'anar a <strong>Panell de Control &gt; Centre de xarxes i recursos compartits &gt; Canviar configuració de l'adaptador</strong>.</p>
-<p><img alt="1" src="../img_br/img3.18.png" /></p>
-<p>A la imatge es mostren tots els adaptadors de xarxa d'un equip qualsevol, en el nostre cas, busquem l'adaptador Wi-Fi sobre el qual canviem la configuració.</p>
-<p>En aquesta finestra seleccionarem l'adaptador de xarxa que hem comentat abans (Wi-Fi) i farem <strong>Botó dret &gt; Propietats</strong>.</p>
-<p><img alt="2" src="../img_br/img3.17.png" /></p>
-<p>En aquesta finestra buscarem l'element <strong>"Protocol de Internet versió 6 (TCP/IPv6)"</strong>.</p>
-<p><img alt="Protocol IPv6" src="../img_br/img17.png" /></p>
-<p>I desmarcarem la casella de verificació del protocol.</p>
-<p>Acceptem i ja tindrem deshabilitat IPv6.</p>
-<p>Ara, en realitzar un <code>ipconfig</code>, podem veure que hem deshabilitat l'adreça IPv6:</p>
-<p><img alt="Ipconfig realitzat" src="../img_br/img18.png" /></p>
+<h2 id="gpos-relacionades-eamb-la-seguretat">GPOs relacionades eamb la seguretat</h2>
+<div class="admonition note">
+<p class="admonition-title">Seguretat</p>
+<p>Per reforçar la seguretat d'un domini Active Directory, hi ha diverses <strong>Group Policy Objects (GPO)</strong> que es poden modificar per garantir una millor protecció dels usuaris, sistemes i dades. Aquí tens una llista de GPOs recomanades per millorar la seguretat del domini:</p>
+</div>
+<h3 id="1-politica-de-contrasenyes">1. <strong>Política de contrasenyes:</strong></h3>
+<p>Modificar les polítiques de contrasenya és fonamental per garantir que els usuaris utilitzin contrasenyes fortes i segures.</p>
+<ul>
+<li>
+<p><strong>Reforçar la complexitat de les contrasenyes:</strong>  </p>
+<ul>
+<li>
+<p><strong>Minimum password length</strong> (Longitud mínima de la contrasenya): 12 caràcters.</p>
+</li>
+<li>
+<p><strong>Password complexity requirements</strong> (Requisits de complexitat de contrasenya): Habilitar aquesta política per obligar l'ús de majúscules, minúscules, nombres i símbols.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Historial de contrasenyes:</strong>  </p>
+<ul>
+<li>
+<p><strong>Enforce password history</strong> (Forçar historial de contrasenyes): Mantindre almenys 24 contrasenyes anteriors per evitar reutilització de contrasenyes.</p>
+</li>
+<li>
+<p><strong>Maximum password age</strong> (Edat màxima de la contrasenya): Configurar un període de caducitat de les contrasenyes, per exemple, cada 60-90 dies.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Minimum password age</strong> (Edat mínima de la contrasenya): Establir 1 dia per evitar canvis freqüents que puguin esquivar les restriccions de complexitat.</p>
+</li>
+</ul>
+<h3 id="2-politica-de-bloqueig-de-comptes">2. <strong>Política de bloqueig de comptes:</strong></h3>
+<p>Aquesta política ajuda a prevenir atacs de força bruta.</p>
+<ul>
+<li>
+<p><strong>Account lockout threshold</strong> (Llimiti de bloqueig del compte): Bloquejar el compte després de 5 intents fallits.</p>
+</li>
+<li>
+<p><strong>Account lockout duration</strong> (Durada del bloqueig del compte): Configurar 15-30 minuts per desbloquejar automàticament el compte.</p>
+</li>
+<li>
+<p><strong>Reset account lockout counter after</strong> (Restablir el comptador de bloqueig després de): Configurar a 15-30 minuts per reduir el risc de bloquejos massius de comptes.</p>
+</li>
+</ul>
+<h3 id="3-politica-dauditoria">3. <strong>Política d'auditoria:</strong></h3>
+<p>Configurar les polítiques d'auditoria és fonamental per detectar accions sospitoses i millorar la seguretat.</p>
+<ul>
+<li>
+<p><strong>Audit logon events</strong> (Auditoria d'esdeveniments d'inici de sessió): Habilitar per auditar tots els intents d'inici de sessió amb èxit i fallits.</p>
+</li>
+<li>
+<p><strong>Audit account logon events</strong> (Auditoria d'esdeveniments de registre d'accés del compte): Activar per registrar quan un usuari accedeix a un domini.</p>
+</li>
+<li>
+<p><strong>Audit account management</strong> (Auditoria de gestió del compte): Auditar la creació, modificació i eliminació d'usuaris i grups.</p>
+</li>
+<li>
+<p><strong>Audit directory service access</strong> (Auditoria d'accés als serveis de directori): Habilitar per auditar canvis a l'Active Directory.</p>
+</li>
+<li>
+<p><strong>Audit logoff events</strong> (Auditoria d'esdeveniments de tancament de sessió): Registrar quan els usuaris tanquen la sessió.</p>
+</li>
+</ul>
+<h3 id="4-politica-de-proteccio-de-comptes-privilegiats">4. <strong>Política de protecció de comptes privilegiats:</strong></h3>
+<p>Protegir els comptes d'administrador i altres comptes privilegiats és clau per evitar l'elevació de privilegis.</p>
+<ul>
+<li>
+<p><strong>Admin account status</strong> (Estat del compte d'administrador): Desactivar el compte d'administrador per defecte i crear comptes d'administrador personalitzats.</p>
+</li>
+<li>
+<p><strong>Admin group membership</strong> (Membresia del grup d'administradors): Evitar l'ús del grup d'administradors per defecte i crear grups específics per cada conjunt d'administradors.</p>
+</li>
+<li>
+<p><strong>Restrict local admin accounts</strong> (Restringir els comptes d'administrador locals): Utilitzar la política de "Local Administrator Password Solution" (LAPS) per gestionar de forma segura les contrasenyes dels comptes d'administrador locals.</p>
+</li>
+</ul>
+<h3 id="5-politica-de-seguretat-de-la-xarxa">5. <strong>Política de seguretat de la xarxa:</strong></h3>
+<p>Millorar la seguretat de la xarxa i les comunicacions entre dispositius.</p>
+<ul>
+<li>
+<p><strong>Accounts: Limit local account use of blank passwords to console logon only</strong> (Comptes: Limitar l'ús de comptes locals amb contrasenyes en blanc a l'inici de sessió local): Desactivar l'ús de contrasenyes en blanc en comptes locals.</p>
+</li>
+<li>
+<p><strong>Accounts: Administrator account name</strong> (Comptes: Nom del compte d'administrador): Canviar el nom del compte d'administrador per dificultar els atacs.</p>
+</li>
+<li>
+<p><strong>Accounts: Guest account name</strong> (Comptes: Nom del compte convidat): Desactivar o canviar el nom del compte convidat per evitar accés no autoritzat.</p>
+</li>
+<li>
+<p><strong>Audit object access</strong> (Auditoria d'accés a objectes): Habilitar per auditar els intents d'accés als objectes del sistema.</p>
+</li>
+</ul>
+<h3 id="6-politica-de-proteccio-dels-dispositius">6. <strong>Política de protecció dels dispositius:</strong></h3>
+<p>Configurar restriccions per protegir els dispositius connectats a la xarxa.</p>
+<ul>
+<li><strong>Device Installation Restrictions</strong> (Restriccions d'instal·lació de dispositius): Bloquejar la instal·lació de dispositius no autoritzats, com ara dispositius USB no reconeguts.</li>
+</ul>
+<h3 id="7-politica-de-gestio-dactualitzacions-i-pegats">7. <strong>Política de gestió d'actualitzacions i pegats:</strong></h3>
+<p>Configurar l'ús de <strong>Windows Update</strong> per mantenir els sistemes actualitzats.</p>
+<ul>
+<li><strong>Configure Automatic Updates</strong> (Configurar actualitzacions automàtiques): Habilitar per assegurar-se que els sistemes es mantinguin actualitzats amb les últimes actualitzacions de seguretat.</li>
+</ul>
+<h3 id="8-politica-descriptori-remot">8. <strong>Política d'escriptori remot:</strong></h3>
+<p>Configurar la seguretat d'accés remot als servidors i ordinadors.</p>
+<ul>
+<li><strong>Remote Desktop Session Host Configuration</strong> (Configuració de l'amfitrió de sessió d'escriptori remot): Limitar l'accés remot a usuaris específics i aplicar autenticació de nivell de xarxa (NLA) per enfortir la seguretat.</li>
+</ul>
+<h3 id="9-politica-de-restriccions-dexecucio-de-scripts">9. <strong>Política de restriccions d'execució de scripts:</strong></h3>
+<p>Per evitar que s'executin scripts maliciosos al domini.</p>
+<ul>
+<li><strong>User Rights Assignment: Deny log on through Remote Desktop Services</strong> (Assignació de drets d'usuari: Denegar l'inici de sessió a través de serveis d'escriptori remot): Bloquejar usuaris no autoritzats.</li>
+</ul>
+<h3 id="10-politica-de-seguretat-en-el-registre">10. <strong>Política de seguretat en el registre:</strong></h3>
+<p>Protegir l’accés al registre de Windows.</p>
+<ul>
+<li><strong>Audit Registry Access</strong> (Auditoria d'accés al registre): Habilitar per auditar els intents d'accés i modificació del registre.</li>
+</ul>
+<h3 id="revisions-continues">Revisions contínues:</h3>
+<p>És essencial que, un cop configurades aquestes GPOs, es faci una revisió periòdica per ajustar-les i mantenir un nivell de seguretat adequat davant noves amenaces.</p>
+<div class="admonition note">
+<p class="admonition-title">Resum</p>
+<p>Aquestes GPOs ajuden a mitigar diversos vectors d'atac comuns i milloren la seguretat general del domini d'Active Directory.</p>
+</div>
 
 
 
@@ -1601,7 +1880,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Peu de pàgina" >
         
           
-          <a href="../manual_iptables/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Apunts IPTables">
+          <a href="../editar_gpo/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Editar GPOs">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1611,27 +1890,11 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Apunts IPTables
+                Editar GPOs
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../practiquesBase/" class="md-footer__link md-footer__link--next" aria-label="Següent: Equip base">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Següent
-              </span>
-              <div class="md-ellipsis">
-                Equip base
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
         
       </nav>
     

@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../manual_iptables/">
+        <link rel="prev" href="../tallafoc_linux/">
       
       
-        <link rel="next" href="../practiquesBase/">
+        <link rel="next" href="../active_directory/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Reducció serveis - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
+        <title>Editar GPOs - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
       
     
     
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#canviar-port-rdp" class="md-skip">
+        <a href="#editar-gpos" class="md-skip">
           Salta el contingut
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reducció serveis
+              Editar GPOs
             
           </span>
         </div>
@@ -1225,28 +1225,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Reducció serveis
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../reduir_serveis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1255,42 +1237,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Taula de continguts
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#canviar-port-rdp" class="md-nav__link">
-    <span class="md-ellipsis">
-      Canviar port RDP
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deshabilitar-ipv6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deshabilitar IPv6
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1363,19 +1309,21 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2_5" id="__nav_6_2_5_label" tabindex="0">
@@ -1389,7 +1337,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2_5">
             <span class="md-nav__icon md-icon"></span>
             Active Directory
@@ -1421,10 +1369,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../editar_gpo/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Editar GPOs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1433,6 +1399,153 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#editar-gpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editar GPOs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editar GPOs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-accedir-a-la-consola-de-group-policy-management-gpmc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Accedir a la consola de Group Policy Management (GPMC)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Accedir a la consola de Group Policy Management (GPMC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-editar-les-gpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Editar les GPOs:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Editar les GPOs:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos-generals-per-editar-gpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos generals per editar GPOs:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-aplicar-la-gpo-a-una-unitat-organitzativa-o-domini" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Aplicar la GPO a una unitat organitzativa o domini:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Aplicar la GPO a una unitat organitzativa o domini:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-revisar-lefecte-de-la-gpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Revisar l'efecte de la GPO:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Revisar l'efecte de la GPO:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-eines-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Eines alternatives:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consells-addicionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consells addicionals:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1507,20 +1620,131 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#canviar-port-rdp" class="md-nav__link">
+  <a href="#editar-gpos" class="md-nav__link">
     <span class="md-ellipsis">
-      Canviar port RDP
+      Editar GPOs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editar GPOs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-accedir-a-la-consola-de-group-policy-management-gpmc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Accedir a la consola de Group Policy Management (GPMC)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Accedir a la consola de Group Policy Management (GPMC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos:
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#deshabilitar-ipv6" class="md-nav__link">
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-editar-les-gpos" class="md-nav__link">
     <span class="md-ellipsis">
-      Deshabilitar IPv6
+      2. Editar les GPOs:
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2. Editar les GPOs:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos-generals-per-editar-gpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos generals per editar GPOs:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-aplicar-la-gpo-a-una-unitat-organitzativa-o-domini" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Aplicar la GPO a una unitat organitzativa o domini:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Aplicar la GPO a una unitat organitzativa o domini:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-revisar-lefecte-de-la-gpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Revisar l'efecte de la GPO:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Revisar l'efecte de la GPO:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-eines-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Eines alternatives:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consells-addicionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consells addicionals:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1539,47 +1763,133 @@
                   
 
 
-  <h1>Reducció serveis</h1>
+  <h1>Editar GPOs</h1>
 
-<p><img alt="1" src="../img_br/img1.21.png" /></p>
+<h2 id="editar-gpos">Editar GPOs</h2>
+<div class="admonition note">
+<p class="admonition-title">Edició</p>
+<p>Per editar les <strong>Group Policy Objects (GPOs)</strong> a un entorn d'Active Directory, cal seguir una sèrie de passos utilitzant les eines de <strong>Group Policy Management Console (GPMC)</strong> o les eines locals de política de grup. Aquí tens una guia per editar les GPOs de manera eficient:</p>
+</div>
+<h3 id="1-accedir-a-la-consola-de-group-policy-management-gpmc">1. <strong>Accedir a la consola de Group Policy Management (GPMC)</strong></h3>
+<p>La <strong>Group Policy Management Console (GPMC)</strong> és l'eina centralitzada per gestionar les GPOs en Active Directory. Aquí pots crear, modificar i aplicar polítiques a les unitats organitzatives (OU) i dominis.</p>
+<h4 id="passos">Passos:</h4>
 <ol>
-<li>Desactivem la detecció de xarxes i guardem els canvis:
-<img alt="2" src="../img_br/img1.20.png" /></li>
+<li>
+<p><strong>Obrir GPMC:</strong></p>
+</li>
+<li>
+<p>Obre el <strong>Server Manager</strong> a Windows Server.</p>
+</li>
+<li>A la barra lateral esquerra, selecciona <strong>Tools</strong> (Eines) i després <strong>Group Policy Management</strong> (Gestió de polítiques de grup).</li>
+<li>
+<p>Alternativament, pots obrir GPMC directament escrivint <code>gpmc.msc</code> a la finestra de <strong>Run</strong> (Windows + R).</p>
+</li>
+<li>
+<p><strong>Localitzar l'objecte de política de grup (GPO):</strong></p>
+</li>
+<li>
+<p>A la finestra de GPMC, navega pel <strong>domini</strong> o la <strong>unitat organitzativa (OU)</strong> on vols aplicar la política.</p>
+</li>
+<li>
+<p>Fes clic a l'OU o domini desitjat per veure les GPOs existents associades a aquesta ubicació.</p>
+</li>
+<li>
+<p><strong>Crear o editar una GPO:</strong></p>
+</li>
+<li>
+<p><strong>Crear una nova GPO:</strong><br />
+     Fes clic dret a la carpeta <strong>Group Policy Objects</strong> i selecciona <strong>New</strong> per crear una nova GPO. Assigna un nom clar i descriptiu.</p>
+</li>
+<li><strong>Editar una GPO existent:</strong><br />
+     Fes clic dret sobre la GPO que vols modificar i selecciona <strong>Edit</strong> per obrir l'Editor de Política de Grup.</li>
 </ol>
-<h2 id="canviar-port-rdp">Canviar port RDP</h2>
-<p>En aquest cas no bloquejarem el port, simplement el canviem a un altre per evitar la seva enumeració per part d'un atacant.</p>
-<p>Si fem una cerca de ports (nmap) sobre un equip concret, veiem com el port <strong>3389/tcp</strong> està obert (WBT - Windows Based Terminal).</p>
-<p><img alt="Ports Oberts" src="../img_br/escaneo_rdp.PNG" /></p>
-<p>Anem a reconfigurar-lo, primer accedim a la finestra d'Executar amb <strong>Windows + R</strong> i escrivim <strong>regedit</strong>:</p>
-<p><img alt="Regedit 2" src="../img_br/img0.6.png" /></p>
-<p>Amb això, accedirem a l'<strong>Editor del Registre</strong> del nostre equip:</p>
-<p><img alt="Editor de registre 2" src="../img_br/img1.6.png" /></p>
-<p>Un cop dins, anirem a la següent ruta:</p>
-<p><strong>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp</strong></p>
-<p><img alt="Accedint a RDP-Tcp" src="../img_br/img12.1.png" /></p>
-<p>Ara cerquem l'entrada <strong>PortNumber</strong>, fem botó dret &gt; Modificar.</p>
-<p><img alt="Editant PortNumber" src="../img_br/img13.png" /></p>
-<p>I canviem el port pel que nosaltres vulguem, per exemple: 5151 i guardem. Perquè els canvis tinguin efecte cal reiniciar l'equip.</p>
-<p><img alt="Canviant port 5151" src="../img_br/img14.png" /></p>
-<p>Ara, si algú vol connectar-se per RDP al nostre ordinador haurà d'especificar el port que hem definit per poder accedir.</p>
-<p>Anem a comprovar que els canvis han tingut efecte, així que repetim la cerca de ports (nmap):</p>
-<p><img alt="Escanejar ports amb nmap" src="../img_br/escaneo_rdp1.PNG" /></p>
-<p>Veiem que ja no apareix el port <strong>3389/tcp.</strong></p>
-<p>Si fem una cerca de ports més intensiva, veurem que ara el port 5151/tcp apareix com a obert.</p>
-<p><img alt="Escaneig de ports intensiu" src="../img_br/escaneo_rdp2.PNG" /></p>
-<hr />
-<h2 id="deshabilitar-ipv6">Deshabilitar IPv6</h2>
-<p>Per deshabilitar IPv6 hem d'anar a <strong>Panell de Control &gt; Centre de xarxes i recursos compartits &gt; Canviar configuració de l'adaptador</strong>.</p>
-<p><img alt="1" src="../img_br/img3.18.png" /></p>
-<p>A la imatge es mostren tots els adaptadors de xarxa d'un equip qualsevol, en el nostre cas, busquem l'adaptador Wi-Fi sobre el qual canviem la configuració.</p>
-<p>En aquesta finestra seleccionarem l'adaptador de xarxa que hem comentat abans (Wi-Fi) i farem <strong>Botó dret &gt; Propietats</strong>.</p>
-<p><img alt="2" src="../img_br/img3.17.png" /></p>
-<p>En aquesta finestra buscarem l'element <strong>"Protocol de Internet versió 6 (TCP/IPv6)"</strong>.</p>
-<p><img alt="Protocol IPv6" src="../img_br/img17.png" /></p>
-<p>I desmarcarem la casella de verificació del protocol.</p>
-<p>Acceptem i ja tindrem deshabilitat IPv6.</p>
-<p>Ara, en realitzar un <code>ipconfig</code>, podem veure que hem deshabilitat l'adreça IPv6:</p>
-<p><img alt="Ipconfig realitzat" src="../img_br/img18.png" /></p>
+<h3 id="2-editar-les-gpos">2. <strong>Editar les GPOs:</strong></h3>
+<p>L'Editor de Política de Grup és l'eina per modificar les polítiques de seguretat, usuaris, contrasenyes, etc.</p>
+<h4 id="passos-generals-per-editar-gpos">Passos generals per editar GPOs:</h4>
+<ol>
+<li><strong>Obrir l'Editor de Política de Grup:</strong></li>
+</ol>
+<p>Un cop seleccionada la GPO a GPMC, fes clic a <strong>Edit</strong> i s'obrirà l'<strong>Editor de polítiques de grup (Group Policy Management Editor)</strong>.</p>
+<ol>
+<li><strong>Configurar les polítiques de seguretat:</strong></li>
+</ol>
+<p>Les GPOs que vols modificar es troben en les següents seccions dins de l'editor:</p>
+<ul>
+<li><strong>Polítiques de contrasenya i bloqueig de comptes:</strong><br />
+     Camina per la ruta:<br />
+<code>Computer Configuration -&gt; Policies -&gt; Windows Settings -&gt; Security Settings -&gt; Account Policies -&gt; Password Policy</code> i <code>Account Lockout Policy</code>.</li>
+<li><strong>Polítiques d'auditoria:</strong><br />
+     Camina per la ruta:<br />
+<code>Computer Configuration -&gt; Policies -&gt; Windows Settings -&gt; Security Settings -&gt; Advanced Audit Policy Configuration</code>.</li>
+<li><strong>Polítiques d'accés i protecció dels dispositius:</strong><br />
+     Camina per la ruta:<br />
+<code>Computer Configuration -&gt; Policies -&gt; Administrative Templates -&gt; System -&gt; Device Guard</code>.</li>
+<li><strong>Polítiques de protecció d'administradors:</strong><br />
+     Camina per la ruta:<br />
+<code>Computer Configuration -&gt; Policies -&gt; Windows Settings -&gt; Security Settings -&gt; Local Policies -&gt; User Rights Assignment</code>.</li>
+<li>
+<p><strong>Polítiques de seguretat de la xarxa i registre:</strong><br />
+     Camina per la ruta:<br />
+<code>Computer Configuration -&gt; Policies -&gt; Windows Settings -&gt; Security Settings -&gt; Network Security</code> i <code>Windows Settings -&gt; Security Settings -&gt; Registry</code>.</p>
+</li>
+<li>
+<p><strong>Modificar les polítiques:</strong></p>
+</li>
+</ul>
+<p>Un cop localitzada la política que vols modificar (per exemple, la força de les contrasenyes), fes doble clic sobre ella i ajusta la configuració segons les teves necessitats. Algunes polítiques poden ser <strong>Enabled</strong> (activades), <strong>Disabled</strong> (desactivades) o <strong>Not Configured</strong> (no configurades).</p>
+<ul>
+<li>
+<p>Per exemple, per canviar la complexitat de la contrasenya, selecciona <strong>Enabled</strong> i aplica les condicions desitjades (com a mínim 12 caràcters, amb majúscules, minúscules, números i símbols).</p>
+</li>
+<li>
+<p><strong>Guardar els canvis:</strong></p>
+</li>
+</ul>
+<p>Un cop modificades les polítiques, tanca l'Editor de polítiques de grup. Els canvis es desaran automàticament.</p>
+<h3 id="3-aplicar-la-gpo-a-una-unitat-organitzativa-o-domini">3. <strong>Aplicar la GPO a una unitat organitzativa o domini:</strong></h3>
+<p>Després de crear o editar una GPO, és necessari associar-la a una unitat organitzativa (OU) o al domini per aplicar-la als usuaris i equips corresponents.</p>
+<h4 id="passos_1">Passos:</h4>
+<ol>
+<li><strong>Associar la GPO a una unitat organitzativa o domini:</strong></li>
+<li>A GPMC, selecciona la GPO que vols aplicar.</li>
+<li>Fes clic dret i selecciona <strong>Link an Existing GPO</strong>.</li>
+<li>
+<p>A la finestra que apareix, selecciona l'OU o domini al qual vols aplicar la GPO.</p>
+</li>
+<li>
+<p><strong>Force Apply (Aplicació forçada) (si és necessari):</strong>
+   Si la GPO no es reflecteix immediatament, pots forçar l'actualització executant la comanda <code>gpupdate /force</code> des de la línia de comandes en el client o servidor objectiu.</p>
+</li>
+</ol>
+<h3 id="4-revisar-lefecte-de-la-gpo">4. <strong>Revisar l'efecte de la GPO:</strong></h3>
+<p>Després d'aplicar les GPOs, pots revisar si les polítiques s'han aplicat correctament als usuaris i sistemes.</p>
+<h4 id="passos_2">Passos:</h4>
+<ol>
+<li>
+<p><strong>Revisar els resultats amb la comanda <code>gpresult</code>:</strong></p>
+</li>
+<li>
+<p>Executa <code>gpresult /r</code> des d'una finestra de comandes al client o servidor per veure les GPOs aplicades.</p>
+</li>
+<li>
+<p><strong>Utilitzar el </strong>Group Policy Modeling** a GPMC per simular l'aplicació de GPOs a usuaris i sistemes específics abans d'aplicar-los de manera real.</p>
+</li>
+</ol>
+<h3 id="5-eines-alternatives">5. <strong>Eines alternatives:</strong></h3>
+<p>Si no tens accés al servidor per modificar les GPOs de manera centralitzada, pots utilitzar l'eina <strong>Local Group Policy Editor</strong> (<code>gpedit.msc</code>) en màquines locals, però aquesta només afecta la màquina on s'aplica, no al conjunt de dominis o OU com GPMC.</p>
+<h3 id="consells-addicionals">Consells addicionals:</h3>
+<ul>
+<li>
+<p><strong>Documenta els canvis:</strong> Cada vegada que editis una GPO, és bo documentar els canvis per mantenir un historial de les polítiques aplicades.</p>
+</li>
+<li>
+<p><strong>Prova en entorns de desenvolupament:</strong> Abans de fer canvis en un domini de producció, és recomanable provar-los en un entorn de proves o en una màquina de test per evitar impactes no desitjats.</p>
+</li>
+<li>
+<p><strong>Revisa regularment les polítiques:</strong> Les polítiques de seguretat haurien de ser revisades i ajustades periòdicament per garantir la seva efectivitat.</p>
+</li>
+</ul>
+<p>Seguint aquests passos, podràs configurar i modificar les GPOs per augmentar la seguretat en el teu domini Active Directory.</p>
 
 
 
@@ -1601,7 +1911,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Peu de pàgina" >
         
           
-          <a href="../manual_iptables/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Apunts IPTables">
+          <a href="../tallafoc_linux/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Tallafoc Linux">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1611,20 +1921,20 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Apunts IPTables
+                Tallafoc Linux
               </div>
             </div>
           </a>
         
         
           
-          <a href="../practiquesBase/" class="md-footer__link md-footer__link--next" aria-label="Següent: Equip base">
+          <a href="../active_directory/" class="md-footer__link md-footer__link--next" aria-label="Següent: GPOs interesants">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Següent
               </span>
               <div class="md-ellipsis">
-                Equip base
+                GPOs interesants
               </div>
             </div>
             <div class="md-footer__button md-icon">
