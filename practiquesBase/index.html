@@ -1396,6 +1396,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Pràctica 2: Configuració i securització de Server NAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instal·lació
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#possibles-problemes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Possibles problemes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuració
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1702,6 +1735,39 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Pràctica 2: Configuració i securització de Server NAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instal·lació
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#possibles-problemes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Possibles problemes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuració
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1840,9 +1906,46 @@
 </ul>
 <hr />
 <h2 id="practica-2-configuracio-i-securitzacio-de-server-nas"><strong>Pràctica 2: Configuració i securització de Server NAS</strong></h2>
-<p>Pots trobar una guia dels aspectes de configuració essencials en aquest tutorial.</p>
+<p>Pots trobar una guia dels aspectes de configuració essencials per a versiona antigues en aquest tutorial.</p>
 <p>http://somebooks.es/crea-tu-propio-nas-con-openmediavault-parte-1/</p>
 <p>http://somebooks.es/crea-tu-propio-nas-con-openmediavault-parte-2/</p>
+<h3 id="installacio">Instal·lació</h3>
+<ul>
+<li>
+<p>Prepara una màquina virtual que a més a més del disc principal tinga 3 discs del mateix tamany per a implementar un <code>RAID-5</code> posteriorment.</p>
+</li>
+<li>
+<p>Baixa la ISO de Openmediavault i realitza la instal·lació en la teua màquina virtual</p>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Login consola</p>
+<p>Per a fer <code>login</code> en el mode consola has d'utilitzar l'usuari <code>root</code></p>
+</div>
+<h3 id="possibles-problemes">Possibles problemes</h3>
+<ul>
+<li>
+<p>Pot ser que no es reconega l'adaptador de Xarxa que t'haja assignat Virtualbox, prova a utilitzar altre, per exemple <code>PCnet-FASTIII</code>.</p>
+</li>
+<li>
+<p>Si no visualitzes la IP en la consola després d'arrancar, has d'alçar la targeta de xarxa manualment (problemes que ocorren en versions virtualitzades)</p>
+</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>&lt;nombre_de_la_interfaz&gt;<span class="w"> </span>up
+</span></code></pre></div></td></tr></table></div>
+<p>I tornar a demanar IP...</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>sudo<span class="w"> </span>dhclient<span class="w"> </span>&lt;nombre_de_la_interfaz&gt;
+</span></code></pre></div></td></tr></table></div>
+<h3 id="configuracio">Configuració</h3>
+<div class="admonition info">
+<p class="admonition-title">Navegador</p>
+<p>La gestió del sistema es realitza des del navegador.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Pluggin per a RAID</p>
+<p>Les últimes versions del sistema requereixen que instal·leu aquest pluggin per a poder realitzar la funció de RAID</p>
+</div>
+<p><img alt="raid" src="../img/openmediavault.png" /></p>
 <p>En classe s'han vist les següents accions de securització.</p>
 <ul>
 <li>
