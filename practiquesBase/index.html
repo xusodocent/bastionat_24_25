@@ -12,7 +12,7 @@
         <link rel="prev" href="../reduir_serveis/">
       
       
-        <link rel="next" href="../tallafoc_windows/">
+        <link rel="next" href="../serverNAS/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -1370,59 +1370,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#objectiu-daprenentatge_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objectiu d'aprenentatge:
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practica-2-configuracio-i-securitzacio-de-server-nas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pràctica 2: Configuració i securització de Server NAS
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pràctica 2: Configuració i securització de Server NAS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installacio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instal·lació
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#possibles-problemes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Possibles problemes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuracio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuració
-    </span>
-  </a>
   
 </li>
         
@@ -1435,6 +1384,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverNAS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servidor NAS
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1498,10 +1468,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_6" >
         
           
-          <label class="md-nav__link" for="__nav_6_2_5" id="__nav_6_2_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2_6" id="__nav_6_2_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1512,8 +1482,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_6">
             <span class="md-nav__icon md-icon"></span>
             Active Directory
           </label>
@@ -1709,59 +1679,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#objectiu-daprenentatge_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objectiu d'aprenentatge:
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practica-2-configuracio-i-securitzacio-de-server-nas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pràctica 2: Configuració i securització de Server NAS
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pràctica 2: Configuració i securització de Server NAS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installacio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instal·lació
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#possibles-problemes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Possibles problemes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuracio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuració
-    </span>
-  </a>
   
 </li>
         
@@ -1900,77 +1819,6 @@
 </ul>
 </li>
 </ul>
-<h4 id="objectiu-daprenentatge_1"><strong>Objectiu d'aprenentatge:</strong></h4>
-<ul>
-<li>Els participants aprendran a xifrar i gestionar particions en Linux utilitzant LUKS, garantint la seguretat de les dades en una partició o unitat.</li>
-</ul>
-<hr />
-<h2 id="practica-2-configuracio-i-securitzacio-de-server-nas"><strong>Pràctica 2: Configuració i securització de Server NAS</strong></h2>
-<p>Pots trobar una guia dels aspectes de configuració essencials per a versiona antigues en aquest tutorial.</p>
-<p>http://somebooks.es/crea-tu-propio-nas-con-openmediavault-parte-1/</p>
-<p>http://somebooks.es/crea-tu-propio-nas-con-openmediavault-parte-2/</p>
-<h3 id="installacio">Instal·lació</h3>
-<ul>
-<li>
-<p>Prepara una màquina virtual que a més a més del disc principal tinga 3 discs del mateix tamany per a implementar un <code>RAID-5</code> posteriorment.</p>
-</li>
-<li>
-<p>Baixa la ISO de Openmediavault i realitza la instal·lació en la teua màquina virtual</p>
-</li>
-</ul>
-<div class="admonition info">
-<p class="admonition-title">Login consola</p>
-<p>Per a fer <code>login</code> en el mode consola has d'utilitzar l'usuari <code>root</code></p>
-</div>
-<h3 id="possibles-problemes">Possibles problemes</h3>
-<ul>
-<li>
-<p>Pot ser que no es reconega l'adaptador de Xarxa que t'haja assignat Virtualbox, prova a utilitzar altre, per exemple <code>PCnet-FASTIII</code>.</p>
-</li>
-<li>
-<p>Si no visualitzes la IP en la consola després d'arrancar, has d'alçar la targeta de xarxa manualment (problemes que ocorren en versions virtualitzades)</p>
-</li>
-</ul>
-<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>&lt;nombre_de_la_interfaz&gt;<span class="w"> </span>up
-</span></code></pre></div></td></tr></table></div>
-<p>I tornar a demanar IP...</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>sudo<span class="w"> </span>dhclient<span class="w"> </span>&lt;nombre_de_la_interfaz&gt;
-</span></code></pre></div></td></tr></table></div>
-<h3 id="configuracio">Configuració</h3>
-<div class="admonition info">
-<p class="admonition-title">Navegador</p>
-<p>La gestió del sistema es realitza des del navegador.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Pluggin per a RAID</p>
-<p>Les últimes versions del sistema requereixen que instal·leu aquest pluggin per a poder realitzar la funció de RAID</p>
-</div>
-<p><img alt="raid" src="../img/openmediavault.png" /></p>
-<p>En classe s'han vist les següents accions de securització.</p>
-<ul>
-<li>
-<p>Habilitar connexió d'administració https</p>
-</li>
-<li>
-<p>Habilitar FTP segur</p>
-</li>
-<li>
-<p>Generar certificats del domini i per a ssh</p>
-</li>
-<li>
-<p>Creació d'un RAID-5</p>
-</li>
-<li>
-<p>Habilitar serveis SMB/CIFS</p>
-</li>
-<li>
-<p>Creació d'usuaris</p>
-</li>
-<li>
-<p>Habilitació de quotes de disc</p>
-</li>
-</ul>
-<p>Crea un sistema de còpies de seguretat automatitzat en alguna màquina virtual o en l'ordinador anfitrió per a que realitze les còpies en el NAS que has creat.</p>
 <hr />
 
 
@@ -2010,13 +1858,13 @@
         
         
           
-          <a href="../tallafoc_windows/" class="md-footer__link md-footer__link--next" aria-label="Següent: Tallafoc Windows">
+          <a href="../serverNAS/" class="md-footer__link md-footer__link--next" aria-label="Següent: Servidor NAS">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Següent
               </span>
               <div class="md-ellipsis">
-                Tallafoc Windows
+                Servidor NAS
               </div>
             </div>
             <div class="md-footer__button md-icon">
