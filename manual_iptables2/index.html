@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="../yubikeys/">
+      
+      
+        <link rel="next" href="../reduir_serveis/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
     
     
       
-        <title>Manual iptables2 - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
+        <title>Apunts IPTables - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,16 +66,13 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
         
-        <a href="#esborrat-de-comptadors" class="md-skip">
+        <a href="#iptables-un-manual-senzill" class="md-skip">
           Salta el contingut
         </a>
       
@@ -92,7 +93,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -104,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Manual iptables2
+              Apunts IPTables
             
           </span>
         </div>
@@ -117,20 +118,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format oscur"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format oscur"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Format oscur" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Format oscur" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format clar"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format clar"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Format clar" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Format clar" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -138,10 +139,13 @@
       
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -150,21 +154,21 @@
       <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Cerca">
         
         <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Inicialitzant cerca
@@ -292,16 +296,20 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../equipBase/" class="md-tabs__link">
           
   
@@ -377,20 +385,18 @@
     
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -445,20 +451,18 @@
     
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -534,20 +538,18 @@
     
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -644,20 +646,18 @@
     
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -684,11 +684,12 @@
     
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
@@ -792,11 +793,12 @@
     
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
@@ -986,22 +988,25 @@
       
   
   
+    
   
   
-    
-    
+  
     
     
     
       
+        
+        
+      
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -1015,7 +1020,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Fortificació equip base
@@ -1026,19 +1031,22 @@
                 
   
   
+    
   
   
+  
     
     
     
+      
+      
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
         
           
           <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
@@ -1052,7 +1060,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_1">
             <span class="md-nav__icon md-icon"></span>
             Apunts
@@ -1147,10 +1155,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../manual_iptables/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Apunts IPTables
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1159,6 +1185,153 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iptables-un-manual-senzill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iptables, un manual senzill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-linux-com-a-tallafocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Linux com a tallafocs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Linux com a tallafocs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iptables" class="md-nav__link">
+    <span class="md-ellipsis">
+      iptables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluix-dels-paquets-a-traves-diptables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluix dels paquets a través d'iptables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comandos-de-configuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos de configuració
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos de configuració">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llistat-de-regles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Llistat de regles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esborrat-de-comptadors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Esborrat de comptadors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esborrat-de-totes-les-regles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Esborrat de totes les regles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacio-i-esborrat-de-regles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creació i esborrat de regles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#establiment-duna-politica-per-defecte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Establiment d'una política per defecte
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-un-exemple-senzill" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Un exemple senzill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-exemple-complet-amb-dmz" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Exemple complet amb DMZ
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1181,11 +1354,12 @@
     
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
@@ -1323,11 +1497,12 @@
     
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_6" >
@@ -1462,6 +1637,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#iptables-un-manual-senzill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iptables, un manual senzill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-linux-com-a-tallafocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Linux com a tallafocs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Linux com a tallafocs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iptables" class="md-nav__link">
+    <span class="md-ellipsis">
+      iptables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluix-dels-paquets-a-traves-diptables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluix dels paquets a través d'iptables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comandos-de-configuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comandos de configuració
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comandos de configuració">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llistat-de-regles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Llistat de regles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#esborrat-de-comptadors" class="md-nav__link">
     <span class="md-ellipsis">
       Esborrat de comptadors
@@ -1469,8 +1709,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#esborrat-de-totes-les-regles" class="md-nav__link">
     <span class="md-ellipsis">
       Esborrat de totes les regles
@@ -1478,8 +1718,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#creacio-i-esborrat-de-regles" class="md-nav__link">
     <span class="md-ellipsis">
       Creació i esborrat de regles
@@ -1487,8 +1727,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#establiment-duna-politica-per-defecte" class="md-nav__link">
     <span class="md-ellipsis">
       Establiment d'una política per defecte
@@ -1496,20 +1736,30 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#un-exemple-senzill" class="md-nav__link">
+  <a href="#2-un-exemple-senzill" class="md-nav__link">
     <span class="md-ellipsis">
-      Un exemple senzill
+      2. Un exemple senzill
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exemple-complet-amb-dmz" class="md-nav__link">
+  <a href="#3-exemple-complet-amb-dmz" class="md-nav__link">
     <span class="md-ellipsis">
-      Exemple complet amb DMZ
+      3. Exemple complet amb DMZ
     </span>
   </a>
   
@@ -1530,136 +1780,61 @@
                   
 
 
-  <h1>Manual iptables2</h1>
+  <h1>Apunts IPTables</h1>
 
-<p>Aquí tens la traducció al català i el codi en format Markdown:</p>
-<div class="language-markdown highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Markdown</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span>
-<span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span>
-<span class="normal"><a href="#__codelineno-0-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gu">## **iptables, un manual senzill**</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>Un tallafocs (firewall) és un dispositiu de hardware o software que té com a objectiu protegir una xarxa d&#39;altres xarxes a les quals està connectat. El tallafocs es configura amb una sèrie de regles que determinen el trànsit que pot passar d&#39;una xarxa a una altra i el trànsit que ha de ser bloquejat. Per comprendre el funcionament d&#39;un tallafocs, podem pensar en com realitzen la seva feina els guàrdies de seguretat d&#39;una discoteca. Els propietaris del local estableixen els criteris que ha de complir un client potencial per poder passar a la sala i, cada vegada que algú arriba a la porta, el porter l&#39;avalua:
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">-</span><span class="w"> </span>si compleix els criteris → passa
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">-</span><span class="w"> </span>si no els compleix → no passa
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>A la següent figura es representa l&#39;esquema d&#39;una xarxa d&#39;ordinadors que utilitza un tallafocs per protegir la xarxa local de la xarxa externa:
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a>![<span class="nt">iptables</span>](<span class="na">./img/img_iptables/iptables1.png</span>)
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>Es poden construir tallafocs més sofisticats, com veurem al llarg de l&#39;article, que inclouen equips separats de la resta de la xarxa local (<span class="gs">**DMZ: Zona Desmilitaritzada**</span>) per augmentar encara més la seguretat. De fet, en les grans corporacions, és possible trobar instal·lacions amb més d&#39;un tallafocs, que separen els equips de diferents àrees de l&#39;empresa.
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="gu">## Linux com a tallafocs</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a>El nucli de les màquines GNU/Linux incorpora el framework Netfilter, que permet interceptar i manipular paquets de xarxa. A més, en l&#39;espai d&#39;usuari, l&#39;administrador pot usar iptables per establir les regles del tallafocs.
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="gu">### iptables</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a>iptables s&#39;utilitza per crear, mantenir i revisar les taules de filtratge de paquets en el nucli de Linux, i s&#39;estructura de la següent manera:
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="k">-</span><span class="w"> </span>Existeixen diferents taules (tables) dins de les quals pot haver-hi diverses cadenes (chains).
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="k">-</span><span class="w"> </span>Cada cadena consisteix en una llista de regles amb les quals es comparen els paquets que passen pel tallafocs. Les regles especifiquen què es fa amb els paquets que s&#39;ajusten a elles (target).
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a>Per a cada paquet que rep el tallafocs, s&#39;examina la primera regla de la cadena corresponent. Si el paquet no s&#39;ajusta a aquesta regla, es continua examinant la següent fins que s&#39;ajusti amb alguna. En aquell moment s&#39;executa el target:
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="k">-</span><span class="w"> </span>DROP: el paquet es descarta, no pot passar
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">-</span><span class="w"> </span>ACCEPT: el paquet continua el seu camí normal
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a>Si s&#39;arriba al final d&#39;una cadena predefinida s&#39;executa un target per defecte, anomenat política de cadena (chain policy). La política de cadena estableix, per tant, la política per defecte del nostre tallafocs.
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="gu">### Taules</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33"></a>Com dèiem, en iptables existeixen diverses taules, que tenen diferents objectius:
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34"></a>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="k">-</span><span class="w"> </span>La taula filter és la taula per defecte, i s&#39;utilitza per especificar filtres de paquets. Conté 3 cadenes predefinides:
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>INPUT: Es consulta per als paquets que van dirigits al propi tallafocs.
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>FORWARD: La travessen els paquets enrutats a través d&#39;aquesta màquina, és a dir, aquells paquets en els quals l&#39;origen i el destí són equips de xarxes diferents.
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>OUTPUT: Per a paquets generats localment.
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">-</span><span class="w"> </span>La taula nat es consulta cada vegada que es veu un paquet que inicia una nova connexió, amb l&#39;objectiu de modificar algun paràmetre d&#39;aquella connexió. Té 3 cadenes predefinides:
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>PREROUTING: es consulta amb els paquets que entren a la màquina tallafocs, tan aviat com arriben, abans de decidir què fer amb ells.
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>OUTPUT: s&#39;utilitza per alterar paquets generats localment, abans de rutar-los.
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">  </span><span class="k">-</span><span class="w"> </span>POSTROUTING: per alterar els paquets que estan a punt de sortir de la màquina.
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="k">-</span><span class="w"> </span>La taula mangle és una taula especial, destinada a alterar determinats paràmetres dels paquets (TOS, TTL …), que s&#39;utilitza per realitzar configuracions complexes del tallafocs. Comptarà amb 5 cadenes predefinides: INPUT, OUTPUT, PREROUTING, POSTROUTING I FORWARD.
-</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="gu">### Fluix dels paquets a través d&#39;iptables</span>
-</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47"></a>Veiem tots els possibles camins que un paquet pot seguir al travessar el nostre tallafocs.
-</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48"></a>
-</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49"></a>![<span class="nt">iptables</span>](<span class="na">./img/img_iptables/iptables2.png</span>)
-</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51"></a>Veiem el camí que seguiria, per exemple, un paquet que s&#39;origina a la nostra xarxa local i va destinat a una màquina d&#39;Internet:
-</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52"></a>
-</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="k">-</span><span class="w"> </span>El paquet entra al tallafocs per una interfície de xarxa, per tant, primer es comprovarien les regles de la cadena PREROUTING.
-</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="k">-</span><span class="w"> </span>A continuació es comprovarien les regles de la cadena FORWARD, ja que el paquet no va destinat a un procés del tallafocs, sinó que va a travessar-lo, sortint per la interfície que el connecta amb la xarxa externa.
-</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="k">-</span><span class="w"> </span>Finalment, si el paquet no ha estat filtrat i continua endavant, abans de sortir del tallafocs per l&#39;altra interfície de xarxa, es comproven les regles de la cadena POSTROUTING.
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56"></a>
-</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="gu">### Comandos de configuració</span>
-</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59"></a>Anem a explicar, a continuació, els comandos bàsics de configuració d&#39;iptables. Veurem algun exemple senzill, i acabarem amb un exemple complet de configuració d&#39;un tallafocs amb DMZ.
-</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="gu">#### Llistat de regles</span>
-</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63"></a>```bash
-</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64"></a>iptables [-t taula] [opcions] -L [cadena]
+<h2 id="iptables-un-manual-senzill"><strong>Iptables, un manual senzill</strong></h2>
+<div class="admonition info">
+<p class="admonition-title">Firewall</p>
+<p>Un tallafocs (firewall) és un dispositiu de hardware o software que té com a objectiu protegir una xarxa d'altres xarxes a les quals està connectat. El tallafocs es configura amb una sèrie de regles que determinen el trànsit que pot passar d'una xarxa a una altra i el trànsit que ha de ser bloquejat. </p>
+</div>
+<p>Per comprendre el funcionament d'un tallafocs, podem pensar en com realitzen la seva feina els guàrdies de seguretat d'una discoteca. Els propietaris del local estableixen els criteris que ha de complir un client potencial per poder passar a la sala i, cada vegada que algú arriba a la porta, el porter l'avalua:</p>
+<ul>
+<li>si compleix els criteris → passa</li>
+<li>si no els compleix → no passa</li>
+</ul>
+<p>A la següent figura es representa l'esquema d'una xarxa d'ordinadors que utilitza un tallafocs per protegir la xarxa local de la xarxa externa:</p>
+<p><img alt="iptables" src="../img/img_iptables/iptables1.png" /></p>
+<p>Es poden construir tallafocs més sofisticats, que incloguen equips separats de la resta de la xarxa local (<strong>DMZ: Zona Desmilitaritzada</strong>) per augmentar encara més la seguretat. De fet, en les grans corporacions, és possible trobar instal·lacions amb més d'un tallafocs, que separen els equips de diferents àrees de l'empresa.</p>
+<h2 id="1-linux-com-a-tallafocs">1. Linux com a tallafocs</h2>
+<p>El nucli de les màquines GNU/Linux incorpora el framework Netfilter, que permet interceptar i manipular paquets de xarxa. A més, en l'espai d'usuari, l'administrador pot usar iptables per establir les regles del tallafocs.</p>
+<h3 id="iptables">iptables</h3>
+<p>iptables s'utilitza per crear, mantenir i revisar les taules de filtratge de paquets en el nucli de Linux, i s'estructura de la següent manera:</p>
+<ul>
+<li>Existeixen diferents taules (tables) dins de les quals pot haver-hi diverses cadenes (chains).</li>
+<li>Cada cadena consisteix en una llista de regles amb les quals es comparen els paquets que passen pel tallafocs. Les regles especifiquen què es fa amb els paquets que s'ajusten a elles (target).</li>
+</ul>
+<p>Per a cada paquet que rep el tallafocs, s'examina la primera regla de la cadena corresponent. Si el paquet no s'ajusta a aquesta regla, es continua examinant la següent fins que s'ajusti amb alguna. En aquell moment s'executa el target:</p>
+<ul>
+<li>DROP: el paquet es descarta, no pot passar</li>
+<li>ACCEPT: el paquet continua el seu camí normal</li>
+</ul>
+<p>Si s'arriba al final d'una cadena predefinida s'executa un target per defecte, anomenat política de cadena (chain policy). La política de cadena estableix, per tant, la política per defecte del nostre tallafocs.</p>
+<h3 id="taules">Taules</h3>
+<p>Com dèiem, en iptables existeixen diverses taules, que tenen diferents objectius:</p>
+<ul>
+<li>La taula filter és la taula per defecte, i s'utilitza per especificar filtres de paquets. Conté 3 cadenes predefinides:</li>
+<li>INPUT: Es consulta per als paquets que van dirigits al propi tallafocs.</li>
+<li>FORWARD: La travessen els paquets enrutats a través d'aquesta màquina, és a dir, aquells paquets en els quals l'origen i el destí són equips de xarxes diferents.</li>
+<li>OUTPUT: Per a paquets generats localment.</li>
+<li>La taula nat es consulta cada vegada que es veu un paquet que inicia una nova connexió, amb l'objectiu de modificar algun paràmetre d'aquella connexió. Té 3 cadenes predefinides:</li>
+<li>PREROUTING: es consulta amb els paquets que entren a la màquina tallafocs, tan aviat com arriben, abans de decidir què fer amb ells.</li>
+<li>OUTPUT: s'utilitza per alterar paquets generats localment, abans de rutar-los.</li>
+<li>POSTROUTING: per alterar els paquets que estan a punt de sortir de la màquina.</li>
+<li>La taula mangle és una taula especial, destinada a alterar determinats paràmetres dels paquets (TOS, TTL …), que s'utilitza per realitzar configuracions complexes del tallafocs. Comptarà amb 5 cadenes predefinides: INPUT, OUTPUT, PREROUTING, POSTROUTING I FORWARD.</li>
+</ul>
+<h3 id="fluix-dels-paquets-a-traves-diptables">Fluix dels paquets a través d'iptables</h3>
+<p>Veiem tots els possibles camins que un paquet pot seguir al travessar el nostre tallafocs.</p>
+<p><img alt="iptables" src="../img/img_iptables/iptables2.png" /></p>
+<p>Veiem el camí que seguiria, per exemple, un paquet que s'origina a la nostra xarxa local i va destinat a una màquina d'Internet:</p>
+<ul>
+<li>El paquet entra al tallafocs per una interfície de xarxa, per tant, primer es comprovarien les regles de la cadena PREROUTING.</li>
+<li>A continuació es comprovarien les regles de la cadena FORWARD, ja que el paquet no va destinat a un procés del tallafocs, sinó que va a travessar-lo, sortint per la interfície que el connecta amb la xarxa externa.</li>
+<li>Finalment, si el paquet no ha estat filtrat i continua endavant, abans de sortir del tallafocs per l'altra interfície de xarxa, es comproven les regles de la cadena POSTROUTING.</li>
+</ul>
+<h3 id="comandos-de-configuracio">Comandos de configuració</h3>
+<p>Anem a explicar, a continuació, els comandos bàsics de configuració d'iptables. Veurem algun exemple senzill, i acabarem amb un exemple complet de configuració d'un tallafocs amb DMZ.</p>
+<h4 id="llistat-de-regles">Llistat de regles</h4>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>iptables<span class="w"> </span><span class="o">[</span>-t<span class="w"> </span>taula<span class="o">]</span><span class="w"> </span><span class="o">[</span>opcions<span class="o">]</span><span class="w"> </span>-L<span class="w"> </span><span class="o">[</span>cadena<span class="o">]</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Mostra un llistat de totes les regles d'una cadena, o de totes elles. Les opcions disponibles són:</p>
 <ul>
@@ -1704,11 +1879,10 @@
 <div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>iptables<span class="w"> </span><span class="o">[</span>-t<span class="w"> </span>taula<span class="o">]</span><span class="w"> </span>-P<span class="w"> </span>cadena<span class="w"> </span>target
 </span></code></pre></div></td></tr></table></div>
 <p>Estableix el target que s'executarà per als paquets que no compleixin cap regla de la cadena especificada.</p>
-<h2 id="un-exemple-senzill">Un exemple senzill</h2>
+<h2 id="2-un-exemple-senzill">2. Un exemple senzill</h2>
 <p>Amb aquests comandaments bàsics de configuració ja podem resoldre molts dels problemes amb els quals es troba una empresa al exposar els seus sistemes d'informació a Internet. Anem a veure un exemple senzill per entendre com s'han d'escriure les regles en iptables. Observem la figura 3, que representa una instal·lació senzilla, amb una màquina que actua com a router i tallafocs connectant dues xarxes diferents.</p>
 <p><img alt="iptables" src="../img/img_iptables/iptables3.png" /></p>
-<p>Suposem que volem que només la màquina B pugui parlar amb C, i a més només pugui usar el protocol TCP. Els pa</p>
-<p>quets de la xarxa A no han d'accedir a la màquina C, i no volem que l'usuari de B pugui accedir a la màquina A. En aquest escenari, no volem exposar la màquina A a Internet, així que definirem les següents regles:</p>
+<p>Suposem que volem que només la màquina B puga parlar amb C, i a més només puga usar el protocol TCP. Els paquets de la xarxa A no han d'accedir a la màquina C, i no volem que l'usuari de B puga accedir a la màquina A. En aquest escenari, no volem exposar la màquina A a Internet, així que definirem les següents regles:</p>
 <div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -1735,7 +1909,7 @@
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">0</span>.0.0.0/0<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.1.3<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 </span></code></pre></div></td></tr></table></div>
 <p>A partir d'aquest moment, la màquina B pot accedir a la màquina C, i la màquina C està accessible des d'Internet. La màquina A no pot ser accedida des de cap lloc.</p>
-<h2 id="exemple-complet-amb-dmz">Exemple complet amb DMZ</h2>
+<h2 id="3-exemple-complet-amb-dmz">3. Exemple complet amb DMZ</h2>
 <p>A l'últim exemple, construirem un tallafocs que contindrà una DMZ. La xarxa es veurà així:</p>
 <p><img alt="iptables" src="../img/img_iptables/iptables4.png" /></p>
 <p>El tallafocs estarà format per tres interfícies de xarxa:</p>
@@ -1744,6 +1918,7 @@
 <li><strong>INTERFÍCIE_DMZ:</strong> connecta amb la DMZ (servidor web i servidor de correu).</li>
 <li><strong>INTERFÍCIE_INTERNA:</strong> connecta amb la xarxa interna de l'empresa.</li>
 </ul>
+<p><img alt="iptables" src="../img/img_iptables/iptables9.png" /></p>
 <p>El tallafocs ha de ser capaç de controlar les comunicacions de les xarxes internes amb la DMZ, així com les comunicacions de la DMZ amb Internet. Les regles seran:</p>
 <div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
@@ -1791,9 +1966,13 @@
 </span></code></pre></div></td></tr></table></div>
 <p>Amb això, hem aconseguit una bona configuració inicial d'un tallafocs. Tot i això, cal tenir en compte que aquesta és una configuració bàsica, i que en una instal·lació real seria convenient aplicar estratègies de seguretat addicionals.</p>
 <hr />
-<p><strong>Fi de l'article</strong>
-``` </p>
-<p>Si necessites qualsevol altre canvi o afegit, fes-m'ho saber!</p>
+
+
+
+
+
+
+
 
 
 
@@ -1804,12 +1983,51 @@
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Peu de pàgina" >
+        
+          
+          <a href="../yubikeys/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Yubikeys">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Yubikeys
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../reduir_serveis/" class="md-footer__link md-footer__link--next" aria-label="Següent: Reducció serveis">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Següent
+              </span>
+              <div class="md-ellipsis">
+                Reducció serveis
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -1838,10 +2056,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "content.code.copy", "content.code.annotate", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "content.code.copy", "content.code.annotate", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>
