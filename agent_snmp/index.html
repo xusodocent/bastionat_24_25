@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="../snmp/">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="next" href="../prac_the_dude/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
     
       
-        <title>BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
+        <title>Agent SNMP - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -42,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#installacio-i-habilitacio-del-snmp-a-ubuntu-i-windows" class="md-skip">
+          Salta el contingut
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -80,9 +89,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Capçalera">
-    <a href="/." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-header__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
+    <a href=".." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-header__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
       
-  <img src="/img/logocap.png" alt="logo">
+  <img src="../img/logocap.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -99,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Agent SNMP
             
           </span>
         </div>
@@ -191,7 +200,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
     
@@ -210,7 +219,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/manuals/" class="md-tabs__link">
+        <a href="../manuals/" class="md-tabs__link">
           
   
   Manuals
@@ -228,7 +237,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/instalar_gns3_primer_escenari/" class="md-tabs__link">
+        <a href="../instalar_gns3_primer_escenari/" class="md-tabs__link">
           
   
   GNS3
@@ -246,7 +255,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/criptografia/" class="md-tabs__link">
+        <a href="../criptografia/" class="md-tabs__link">
           
   
   Criptografía
@@ -270,7 +279,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/ssh/" class="md-tabs__link">
+        <a href="../ssh/" class="md-tabs__link">
           
   
   SSH
@@ -297,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/equipBase/" class="md-tabs__link">
+        <a href="../equipBase/" class="md-tabs__link">
           
   
   Fortificació equip base
@@ -324,7 +333,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/hotspot/" class="md-tabs__link">
+        <a href="../hotspot/" class="md-tabs__link">
           
   
   Hotspot
@@ -341,17 +350,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/snmp/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../snmp/" class="md-tabs__link">
           
   
   Monitorització
@@ -387,9 +400,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegació" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-nav__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
+    <a href=".." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-nav__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
       
-  <img src="/img/logocap.png" alt="logo">
+  <img src="../img/logocap.png" alt="logo">
 
     </a>
     BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat
@@ -404,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -464,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/manuals/" class="md-nav__link">
+      <a href="../manuals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -532,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/instalar_gns3_primer_escenari/" class="md-nav__link">
+      <a href="../instalar_gns3_primer_escenari/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -553,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/crear_appliances/" class="md-nav__link">
+      <a href="../crear_appliances/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -621,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/criptografia/" class="md-nav__link">
+      <a href="../criptografia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -642,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Prac_T2/" class="md-nav__link">
+      <a href="../Prac_T2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -663,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/apunts/" class="md-nav__link">
+      <a href="../apunts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -768,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ssh/" class="md-nav__link">
+      <a href="../ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -789,7 +802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/connexio_ssh/" class="md-nav__link">
+      <a href="../connexio_ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -810,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/xifrats_ssh/" class="md-nav__link">
+      <a href="../xifrats_ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -876,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hardering_ssh/" class="md-nav__link">
+      <a href="../hardering_ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -897,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ssh_2fa/" class="md-nav__link">
+      <a href="../ssh_2fa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -918,7 +931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sshaudit24/" class="md-nav__link">
+      <a href="../sshaudit24/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -939,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ssh_guard2/" class="md-nav__link">
+      <a href="../ssh_guard2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,7 +973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/fail2ban_telegram/" class="md-nav__link">
+      <a href="../fail2ban_telegram/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -981,7 +994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ssh_cert/" class="md-nav__link">
+      <a href="../ssh_cert/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1002,7 +1015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sshfs/" class="md-nav__link">
+      <a href="../sshfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1115,7 +1128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/equipBase/" class="md-nav__link">
+      <a href="../equipBase/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1136,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/servidorNAS/" class="md-nav__link">
+      <a href="../servidorNAS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/honeypot/" class="md-nav__link">
+      <a href="../honeypot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1178,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/yubikeys/" class="md-nav__link">
+      <a href="../yubikeys/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1199,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/manual_iptables2/" class="md-nav__link">
+      <a href="../manual_iptables2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1265,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reduir_serveis/" class="md-nav__link">
+      <a href="../reduir_serveis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1286,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/practiquesBase/" class="md-nav__link">
+      <a href="../practiquesBase/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1307,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/serverNAS/" class="md-nav__link">
+      <a href="../serverNAS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1328,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tallafoc_windows/" class="md-nav__link">
+      <a href="../tallafoc_windows/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1349,7 +1362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tallafoc_linux/" class="md-nav__link">
+      <a href="../tallafoc_linux/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1407,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/crear_ad.md" class="md-nav__link">
+      <a href="../crear_ad.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1428,7 +1441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/editar_gpo/" class="md-nav__link">
+      <a href="../editar_gpo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1449,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/active_directory/" class="md-nav__link">
+      <a href="../active_directory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1570,7 +1583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hotspot/" class="md-nav__link">
+      <a href="../hotspot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1636,7 +1649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/practiquesHotspot/" class="md-nav__link">
+      <a href="../practiquesHotspot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1657,7 +1670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hotspot_user_manager/" class="md-nav__link">
+      <a href="../hotspot_user_manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1690,8 +1703,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -1700,12 +1715,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
@@ -1719,7 +1734,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Monitorització
@@ -1730,19 +1745,21 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" checked>
         
           
           <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
@@ -1756,7 +1773,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8_1">
             <span class="md-nav__icon md-icon"></span>
             Apunts
@@ -1770,7 +1787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/snmp/" class="md-nav__link">
+      <a href="../snmp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1788,10 +1805,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/agent_snmp/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Agent SNMP
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1800,6 +1837,83 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-installacio-i-configuracio-del-snmp-en-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Instal·lació i configuració del SNMP en Ubuntu:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Instal·lació i configuració del SNMP en Ubuntu:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos-per-a-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos per a Ubuntu:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installacio-i-configuracio-del-snmp-en-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Instal·lació i configuració del SNMP en Windows:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Instal·lació i configuració del SNMP en Windows:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos-per-a-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos per a Windows:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprovació
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1857,7 +1971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/prac_the_dude/" class="md-nav__link">
+      <a href="../prac_the_dude/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1903,6 +2017,73 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-installacio-i-configuracio-del-snmp-en-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Instal·lació i configuració del SNMP en Ubuntu:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Instal·lació i configuració del SNMP en Ubuntu:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos-per-a-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos per a Ubuntu:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installacio-i-configuracio-del-snmp-en-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Instal·lació i configuració del SNMP en Windows:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Instal·lació i configuració del SNMP en Windows:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos-per-a-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passos per a Windows:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprovació
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1914,8 +2095,151 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+<h1 id="installacio-i-habilitacio-del-snmp-a-ubuntu-i-windows">Instal·lació i habilitació del SNMP a <strong>Ubuntu</strong> i <strong>Windows</strong></h1>
+<h2 id="1-installacio-i-configuracio-del-snmp-en-ubuntu">1. Instal·lació i configuració del SNMP en <strong>Ubuntu</strong>:</h2>
+<p>SNMP (Simple Network Management Protocol) és un protocol utilitzat per monitoritzar dispositius de xarxa com routers, switches i servidors. En aquest cas, explicarem com instal·lar i habilitar SNMP en un sistema Ubuntu per poder obtenir dades de monitorització.</p>
+<h3 id="passos-per-a-ubuntu">Passos per a <strong>Ubuntu</strong>:</h3>
+<ol>
+<li><strong>Instal·la els paquets SNMP</strong>:</li>
+<li>En primer lloc, actualitza el sistema i instal·la els paquets necessaris per utilitzar SNMP:</li>
+</ol>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>snmp<span class="w"> </span>snmpd
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>Configura el servei SNMP</strong>:</li>
+<li>El servei SNMP es configura mitjançant el fitxer <code>snmpd.conf</code>, que es troba a la ruta <code>/etc/snmp/snmpd.conf</code>. Abans de modificar-lo, és aconsellable fer una còpia de seguretat del fitxer:</li>
+</ol>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>cp<span class="w"> </span>/etc/snmp/snmpd.conf<span class="w"> </span>/etc/snmp/snmpd.conf.bak
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>Modifica la configuració de <code>snmpd.conf</code></strong>:</li>
+<li>Obre el fitxer de configuració per editar-lo:</li>
+</ol>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/snmp/snmpd.conf
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>Modifica o afegeix les línies següents per establir el nom de comunitat (usarem "public" com a exemple):</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Definir la comunitat SNMP</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>rocommunity<span class="w"> </span>public
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Definir l&#39;agent SNMP per escoltar a totes les interfícies de xarxa</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>agentAddress<span class="w"> </span>udp:161,udp6:<span class="o">[</span>::1<span class="o">]</span>:161
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>
+<p>Si vols afegir altres configuracions personalitzades, pots fer-ho, però aquests són els valors mínims per a la configuració bàsica.</p>
+</li>
+<li>
+<p><strong>Reinicia el servei SNMP</strong>:</p>
+</li>
+<li>Un cop fetes les modificacions, reinicia el servei SNMP per aplicar els canvis:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>snmpd
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>Habilita el servei SNMP per començar a arrencar automàticament</strong>:</li>
+<li>Si vols que el servei SNMP s’iniciï automàticament quan el sistema arrenca, utilitza:</li>
+</ol>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>snmpd
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li><strong>Comprova que el servei SNMP estigui funcionant</strong>:</li>
+<li>Per verificar que el servei SNMP està en funcionament, pots executar:</li>
+</ol>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>snmpwalk<span class="w"> </span>-v<span class="w"> </span>2c<span class="w"> </span>-c<span class="w"> </span>public<span class="w"> </span>localhost
+</span></code></pre></div></td></tr></table></div>
+<p>Aquesta comanda enviarà una sol·licitud SNMP a la màquina local i et retornarà informació sobre els dispositius SNMP de la màquina.</p>
+<hr />
+<h2 id="2-installacio-i-configuracio-del-snmp-en-windows">2. Instal·lació i configuració del SNMP en <strong>Windows</strong>:</h2>
+<p>A diferència d'Ubuntu, el sistema operatiu <strong>Windows</strong> no té SNMP instal·lat per defecte, així que cal afegir el servei de SNMP manualment.</p>
+<h3 id="passos-per-a-windows">Passos per a <strong>Windows</strong>:</h3>
+<ol>
+<li>
+<p><strong>Instal·la el servei SNMP</strong>:</p>
+</li>
+<li>
+<p>A Windows 10 o Windows Server 2016 i posteriors, el servei SNMP es troba com a característiques opcionals que cal instal·lar.</p>
+</li>
+<li>A continuació, anem a "Panell de control" &gt; "Programari i característiques" &gt; "Activar o desactivar les característiques de Windows".</li>
+<li>Busca i marca l’opció <strong>"Servidor SNMP"</strong> i les seves subopcions <strong>"Comunitat SNMP"</strong> i <strong>"Agent SNMP"</strong>. Fes clic a "D'acord".</li>
+</ol>
+<p>Un altre mètode seria instal·lar les característiques des de PowerShell:</p>
+<ul>
+<li>Obrir PowerShell com a administrador i executar:</li>
+</ul>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PowerShell</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nb">Enable-WindowsOptionalFeature</span> <span class="n">-Online</span> <span class="n">-FeatureName</span> <span class="n">SNMP</span>
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p><strong>Configura SNMP</strong>:</p>
+</li>
+<li>
+<p>Un cop instal·lat el servei, anem a "Panell de control" &gt; "Eines administratives" &gt; "Serveis".</p>
+</li>
+<li>Busca el servei <strong>"SNMP Service"</strong> a la llista, i fes clic amb el botó dret sobre ell.</li>
+<li>
+<p>Fes clic a "Propietats" i selecciona <strong>"Iniciat"</strong> a l’opció <strong>Tipus d’arrencada</strong>. Configura també el servei per a que s'iniciï automàticament.</p>
+</li>
+<li>
+<p><strong>Configura les comunitats SNMP</strong>:</p>
+</li>
+<li>
+<p>Fes clic a la pestanya <strong>"Seguretat"</strong> i defineix la comunitat SNMP.</p>
+</li>
+<li>A la secció "Comunitats", fes clic a <strong>"Afegir"</strong> per definir una nova comunitat SNMP.</li>
+<li>
+<p>Per exemple, afegeix la comunitat "public" per la lectura de dades.</p>
+</li>
+<li>
+<p><strong>Configura les adreces IP de la màquina que poden consultar SNMP</strong>:</p>
+</li>
+<li>
+<p>En el mateix menú de "Seguretat", a la secció "Permetre sol·licituds SNMP només des de les adreces IP seleccionades", pots especificar les IPs de les màquines que podran consultar SNMP (per exemple, només permetre consultes des de la teva xarxa local).</p>
+</li>
+<li>
+<p><strong>Reinicia el servei SNMP</strong>:</p>
+</li>
+<li>
+<p>Després d'haver configurat les opcions, reinicia el servei SNMP per aplicar els canvis. Pots fer-ho des del mateix menú de "Serveis" fent clic a "Reiniciar" o amb PowerShell:</p>
+</li>
+</ol>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PowerShell</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nb">Restart-Service</span> <span class="n">SNMP</span>
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p><strong>Comprova que el servei SNMP estigui funcionant</strong>:</p>
+</li>
+<li>
+<p>Un cop configurat, pots comprovar el funcionament de SNMP mitjançant eines com <strong>snmpwalk</strong> o un client SNMP, per exemple, des d’un altre dispositiu (Linux, Windows o una eina de monitoratge).</p>
+</li>
+</ol>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>snmpwalk<span class="w"> </span>-v<span class="w"> </span>2c<span class="w"> </span>-c<span class="w"> </span>public<span class="w"> </span>&lt;IP_DEL_COMPUTADOR_WINDOWS&gt;
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="comprovacio">Comprovació</h3>
+<ul>
+<li>
+<p><strong>Per a Ubuntu</strong>: Si el servei està correcte, pots fer un <code>snmpwalk</code> a la mateixa màquina o des d'una altra màquina per verificar que els dispositius responen correctament.</p>
+</li>
+<li>
+<p><strong>Per a Windows</strong>: Després de configurar SNMP, pots provar amb eines com <strong>snmpwalk</strong> o utilitzar eines com <strong>The Dude</strong> o <strong>PRTG Network Monitor</strong> per verificar que SNMP està responent correctament.</p>
+</li>
+</ul>
+<hr />
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1926,6 +2250,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Peu de pàgina" >
+        
+          
+          <a href="../snmp/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: SNMP">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                SNMP
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../prac_the_dude/" class="md-footer__link md-footer__link--next" aria-label="Següent: Monitorització amb The Dude">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Següent
+              </span>
+              <div class="md-ellipsis">
+                Monitorització amb The Dude
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -1954,10 +2316,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["navigation.tabs", "content.code.copy", "content.code.annotate", "content.code.select", "navigation.footer"], "search": "/assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "content.code.copy", "content.code.annotate", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      <script src="../assets/javascripts/bundle.cd18aaf1.min.js"></script>
       
     
   </body>
