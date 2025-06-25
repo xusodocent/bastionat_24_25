@@ -1,0 +1,3530 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../instalacio_pfsense/">
+      
+      
+        <link rel="next" href="../vlans_pfsense/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>pfSense - BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-pfsense" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href=".." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-header__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
+      
+  <img src="../img/logocap.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              pfSense
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format oscur"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Format oscur" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Format clar"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Format clar" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestanyes" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inici
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manuals/" class="md-tabs__link">
+          
+  
+  
+  Manuals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../instalar_gns3_primer_escenari/" class="md-tabs__link">
+          
+  
+  
+  GNS3
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../criptografia/" class="md-tabs__link">
+          
+  
+  
+  Criptografía
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ssh/" class="md-tabs__link">
+          
+  
+  
+  SSH
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../equipBase/" class="md-tabs__link">
+          
+  
+  
+  Fortificació equip base
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../hotspot/" class="md-tabs__link">
+          
+  
+  
+  Hotspot
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../snmp/" class="md-tabs__link">
+          
+  
+  
+  Monitorització
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../instalacio_pfsense/" class="md-tabs__link">
+          
+  
+  
+  pfSense
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../instalacio_mikrotik.md" class="md-tabs__link">
+          
+  
+  
+  Mikrotik
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  VLANS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../vlans_pfsense/" class="md-tabs__link">
+          
+  
+  
+  pfSense
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" class="md-nav__button md-logo" aria-label="BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat" data-md-component="logo">
+      
+  <img src="../img/logocap.png" alt="logo">
+
+    </a>
+    BASTIONAT DE XARXES I SISTEMES - CE Ciberseguretat
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inici
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Manuals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Manuals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manuals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Guíes i manuals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GNS3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            GNS3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instalar_gns3_primer_escenari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instal·lació de GNS3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crear_appliances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Crear appliances
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Criptografía
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Criptografía
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../criptografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema
+    
+      <br>
+      <small>Maite Martí i Xuso Ortí</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prac_T2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pràctiques del tema
+    
+      <br>
+      <small>Maite Martí i Xuso Ortí</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apunts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apunts complementaris
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSH
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Apunts SSH
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apunts SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connexio_ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connexió SSH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xifrats_ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Xifrats
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pràctiques
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardering_ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardering SSH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh_2fa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2FA SSH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sshaudit24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSH-Audit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh_guard2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSH-Guard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fail2ban_telegram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    fail2ban i Telegram
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh_cert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accés remot amb certificats
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sshfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSHFS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fortificació equip base
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Fortificació equip base
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Apunts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apunts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../equipBase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fortificació
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../servidorNAS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Còpies de seguretat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../honeypot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HoneyPot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yubikeys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Yubikeys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual_iptables2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apunts IPTables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pràctiques
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reduir_serveis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reducció serveis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practiquesBase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Equip base
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverNAS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Servidor NAS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tallafoc_windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tallafoc Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tallafoc_linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tallafoc Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_6" id="__nav_6_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Active Directory
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Active Directory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crear_ad.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Crear AD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../editar_gpo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editar GPOs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../active_directory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPOs interesants
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hotspot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Hotspot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Apunts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apunts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hotspot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hotspot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pràctiques
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practiquesHotspot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creació Hotspot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hotspot_user_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lots d'usuaris
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Monitorització
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Monitorització
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Apunts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Apunts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SNMP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent_snmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agent SNMP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pràctiques
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prac_the_dude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitorització amb The Dude
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    pfSense
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            pfSense
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Primers pasoss
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Primers pasoss
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instalacio_pfsense/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instal·lació i configuració
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Mikrotik
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Mikrotik
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Primers pasos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            Primers pasos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instalacio_mikrotik.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instal·lació
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    VLANS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            VLANS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    pfSense
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    pfSense
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pfsense" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. pfSense
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. pfSense">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-introduccio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Introducció
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-crear-un-appliance-de-pfsense" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Crear un Appliance de Pfsense
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-installacio-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Instal·lació del sistema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-habilitar-el-webconfig-des-de-la-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Habilitar el webconfig des de la WAN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Habilitar el webconfig des de la WAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opcio-1-desactivar-el-firewall-per-comandaments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opció 1: Desactivar el firewall per comandaments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcio-2-recomanada-accedir-amb-algun-appliance-des-de-la-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opció 2 (recomanada): Accedir amb algun appliance des de la LAN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-aplicacio-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Aplicació pràctica
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Aplicació pràctica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-crear-escenari" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Crear escenari
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-configuracio-dadreces" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Configuració d'adreces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-acces-al-webconfig-de-pfsense" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Accés al webconfig de pfSense
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-habilitar-acces-per-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Habilitar accés per WAN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-comprovar-navegacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Comprovar navegació
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-habilitar-altra-interficie-de-xarxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Habilitar altra interfície de xarxa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-altres-accions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Altres accions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-aplicacio-practica-a-laula-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Aplicació pràctica a l'aula. VLANs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Aplicació pràctica a l&#39;aula. VLANs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-escenari" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Escenari
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-creacio-de-les-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Creació de les VLANs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Firewall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-comprovacions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Comprovacions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-possibles-ampliacions-o-millores" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Possibles ampliacions o millores
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 Possibles ampliacions o millores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regles-recomanades-per-a-la-wan-al-pfsense" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regles recomanades per a la WAN al pfSense
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regles recomanades per a la WAN al pfSense">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-bloquejar-el-transit-no-sollicitat-entrant-a-la-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Bloquejar el trànsit no sol·licitat entrant a la WAN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permetre-les-connexions-retornades-i-establertes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Permetre les connexions retornades i establertes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-permetre-transit-necessari-per-a-serveis-especifics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Permetre trànsit necessari per a serveis específics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-activar-nat-per-permetre-navegacio-des-de-la-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Activar NAT per permetre navegació des de la LAN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regles-recomanades-per-a-la-lan-al-pfsense" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regles recomanades per a la LAN al pfSense
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regles recomanades per a la LAN al pfSense">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-permetre-transit-sortint-des-de-lan-cap-a-qualsevol-lloc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Permetre trànsit sortint des de LAN cap a qualsevol lloc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-bloquejar-transit-intern-no-desitjat" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Bloquejar trànsit intern no desitjat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    pfSense
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            pfSense
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vlans_pfsense/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apunts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pfsense" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. pfSense
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. pfSense">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-introduccio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Introducció
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-crear-un-appliance-de-pfsense" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Crear un Appliance de Pfsense
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-installacio-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Instal·lació del sistema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-habilitar-el-webconfig-des-de-la-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Habilitar el webconfig des de la WAN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Habilitar el webconfig des de la WAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opcio-1-desactivar-el-firewall-per-comandaments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opció 1: Desactivar el firewall per comandaments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcio-2-recomanada-accedir-amb-algun-appliance-des-de-la-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opció 2 (recomanada): Accedir amb algun appliance des de la LAN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-aplicacio-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Aplicació pràctica
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Aplicació pràctica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-crear-escenari" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Crear escenari
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-configuracio-dadreces" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Configuració d'adreces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-acces-al-webconfig-de-pfsense" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Accés al webconfig de pfSense
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-habilitar-acces-per-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Habilitar accés per WAN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-comprovar-navegacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Comprovar navegació
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-habilitar-altra-interficie-de-xarxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Habilitar altra interfície de xarxa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-altres-accions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Altres accions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-aplicacio-practica-a-laula-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Aplicació pràctica a l'aula. VLANs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Aplicació pràctica a l&#39;aula. VLANs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-escenari" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Escenari
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-creacio-de-les-vlans" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Creació de les VLANs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Firewall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-comprovacions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Comprovacions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-possibles-ampliacions-o-millores" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Possibles ampliacions o millores
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 Possibles ampliacions o millores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regles-recomanades-per-a-la-wan-al-pfsense" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regles recomanades per a la WAN al pfSense
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regles recomanades per a la WAN al pfSense">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-bloquejar-el-transit-no-sollicitat-entrant-a-la-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Bloquejar el trànsit no sol·licitat entrant a la WAN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permetre-les-connexions-retornades-i-establertes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Permetre les connexions retornades i establertes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-permetre-transit-necessari-per-a-serveis-especifics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Permetre trànsit necessari per a serveis específics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-activar-nat-per-permetre-navegacio-des-de-la-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Activar NAT per permetre navegació des de la LAN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regles-recomanades-per-a-la-lan-al-pfsense" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regles recomanades per a la LAN al pfSense
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regles recomanades per a la LAN al pfSense">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-permetre-transit-sortint-des-de-lan-cap-a-qualsevol-lloc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Permetre trànsit sortint des de LAN cap a qualsevol lloc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-bloquejar-transit-intern-no-desitjat" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Bloquejar trànsit intern no desitjat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>pfSense</h1>
+
+<h2 id="1-pfsense">1. pfSense</h2>
+<h3 id="11-introduccio">1.1 Introducció</h3>
+<p>El projecte <strong>pfSense</strong> és una distribució gratuïta que pot fer la funció de Firewall/Router, basada en el sistema operatiu FreeBSD amb un nucli personalitzat i que inclou paquets de programari lliure de tercers per a funcionalitats addicionals.</p>
+<p>Proporciona funcions avançades, com ara VPNs, balanceig de càrrega, failover, QoS (qualitat de servei), tallafocs d'inspecció profunda (stateful packet inspection), i més.</p>
+<h3 id="12-crear-un-appliance-de-pfsense">1.2 Crear un Appliance de Pfsense</h3>
+<p>Pots <a href="https://www.gns3.com/marketplace/appliances/pfsense">descarregar ací</a> el appliance oficial. Has de baixar els dos arxius i importar-lo com qualsevol altre appliance en GNS3.</p>
+<p><img alt="Descarregar pfSense" src="../img_pfsense/pfsense.png" /></p>
+<h3 id="13-installacio-del-sistema">1.3 Instal·lació del sistema</h3>
+<p>Una vegada creat el appliance, quan l'arrastrem al nostre projecte i l'engeguem procedirà a instal·lar el sistema. El procés és molt breu.</p>
+<p><img alt="Iniciant instal·lació" src="../img_pfsense/instalar1.png" /></p>
+<p>Triem el sistema d'arxius.</p>
+<p><img alt="Sistema ZFS" src="../img_pfsense/instalar2.png" /></p>
+<p>Triem tipus de dispositiu.</p>
+<p><img alt="Tipus dispositiu" src="../img_pfsense/instalar2_2.png" /></p>
+<p>Marquem l'opció amb la tecla de <code>espai</code>.</p>
+<p><img alt="Marcar opció" src="../img_pfsense/instalar3.png" /></p>
+<p>Acceptem la instal·lació.</p>
+<p><img alt="Acceptar" src="../img_pfsense/instalar4.png" /></p>
+<p>I finalment reiniciem el sistema.</p>
+<p><img alt="Reiniciar" src="../img_pfsense/instalar5.png" /></p>
+<h3 id="14-habilitar-el-webconfig-des-de-la-wan">1.4 Habilitar el webconfig des de la WAN</h3>
+<blockquote>
+<p><strong>Nota</strong>: Amb la configuració inicial no es pot accedir a la web de configuració. A més a més tampoc accepta tràfic per la WAN que provinga d'una IP de xarxa local, com és el nostre cas des de l'institut. Cal desactivar el firewall, afegir una regla per a accedir des de la WAN i habilitar l'opció de permetre tràfic de xarxa local, o bé accedir des d'algun appliance amb navegador des de la xarxa LAN.</p>
+</blockquote>
+<h4 id="opcio-1-desactivar-el-firewall-per-comandaments">Opció 1: Desactivar el firewall per comandaments</h4>
+<p>Seguix les indicacions dels següents tutorials per a fer-ho.</p>
+<ul>
+<li><a href="https://help.clouding.io/hc/es/articles/360010473620-C%C3%B3mo-configurar-reglas-de-firewall-en-pfSense">Tutorial 1</a></li>
+<li><a href="https://www.labsmac.es/desactivar-las-reglas-del-firewall-por-consola-en-pfsense/">Tutorial 2</a></li>
+</ul>
+<h4 id="opcio-2-recomanada-accedir-amb-algun-appliance-des-de-la-lan">Opció 2 (recomanada): Accedir amb algun appliance des de la LAN</h4>
+<p>Vos recomanem aquesta opció ja que és la més senzilla d'entendre i a més a més es fa seguint la proposta de projecte que vos fem a continuació.</p>
+<blockquote>
+<p><strong>Nota</strong>: Seguiu les passes que es donen en el següent apartat <strong>Aplicació pràctica</strong> en el que farem una configuració bàsica del <code>pfSense</code> per a que funcione com a router.</p>
+</blockquote>
+<hr />
+<h2 id="2-aplicacio-practica">2. Aplicació pràctica</h2>
+<p>Anem a crear un projecte bàsic en el que utilitzarem un appliance de pfSense fent la funció de router. Només la part imprescindible per a que es puga navegar per internet.</p>
+<h3 id="21-crear-escenari">2.1 Crear escenari</h3>
+<p>Crearem en <code>GNS3</code> un projecte nou que tindrà aquests appliances.</p>
+<p><img alt="Escenari bàsic" src="../img_pfsense/projecte_pfsense_basic.png" /></p>
+<p>Iniciem els appliances del projecte amb el botó de <code>start</code> i obrim la consola de pfSense. L'instal·lem seguint els passos del punt anterior i una vegada instal·lat i reiniciat tindrem aquesta pantalla de benvinguda.</p>
+<p><img alt="Benvinguda" src="../img_pfsense/pantalla_inicial.png" /></p>
+<h3 id="22-configuracio-dadreces">2.2 Configuració d'adreces</h3>
+<p>Triem l'opció 2 del menú i assignem l'adreça IP de la <code>LAN</code></p>
+<p><img alt="Assignant IP LAN" src="../img_pfsense/ip_lan_assignada.png" /></p>
+<p>A més a més configurem un servidor <code>dhcp</code> per a que assigne adreces IP per la <code>LAN</code>.</p>
+<p><img alt="DHCP-Server LAN" src="../img_pfsense/dhcp_lan.png" /></p>
+<h3 id="23-acces-al-webconfig-de-pfsense">2.3 Accés al webconfig de pfSense</h3>
+<p>Com que hem assignat una IP a la <code>LAN</code> i a més a més tenim un appliance de <code>Firefox</code> amb el que podem navegar, podem accedir al configurador web. Hem d'indicar al <code>Firefox</code> per a que reba l'adreça IP de DHCP.</p>
+<p><img alt="DHCP-Client Firefox" src="../img_pfsense/firefox_dhcp_client.png" /></p>
+<p>Ja podem accedir al router mitjançant la seua <strong>IP (10.0.0.1)</strong>. Les credencials per defecte són:</p>
+<p><strong>Usuari:</strong> admin<br />
+<strong>Contrasenya:</strong> pfsense</p>
+<p><img alt="Accedint al router" src="../img_pfsense/entrem_fpsense_firefox.png" /></p>
+<h3 id="24-habilitar-acces-per-wan">2.4 Habilitar accés per WAN</h3>
+<p>Com hem dit abans, la interfície <code>WAN</code> per defecte no permet accedir des d'adreces locals. En el menú:</p>
+<p><code>INTERFACES -&gt; WAN</code></p>
+<p>Baixem fins el final i desmarquem aquestes dues caselles.</p>
+<p><img alt="Deshabilitar bloqueig WAN" src="../img_pfsense/habilitant_wan.png" /></p>
+<p>Hem d'aplicar els canvis en cada acció a pfSense.</p>
+<p><img alt="Aplicar canvis" src="../img_pfsense/apply_habilitar_wan.png" /></p>
+<p>A més a més, com que la configuració del <code>firewall</code> per defecte és la de bloqueig total, habilitem una regla en el <code>firewall</code> per a permetre el tràfic a través de la <code>WAN</code>.</p>
+<p><code>FIREWALL -&gt; RULES -&gt; WAN</code></p>
+<p>Marquem que deixe passar el tràfic de tots els protocols i a tots els ports.</p>
+<p><img alt="Habilitar tràfic WAN" src="../img_pfsense/regla_wan1.png" /></p>
+<blockquote>
+<p><strong>Nota</strong>: Aquesta configuració és molt insegura. L'hem aplicat per a facilitar el tràfic en els primers escenaris de prova ja que la finalitat d'aquesta formació no és la de configurar la seguretat de les xarxes. En una aplicació real haureu de configurar les regles que s'ajusten a la política de seguretat que voleu seguir.</p>
+</blockquote>
+<p>En aquest moment ja podrem accedir al <code>pfSense</code> des del navegador del nostre equip amfitrió i ens serà més còmode. Haureu d'accedir a través de la IP de la WAN que vos mostra a la pantalla de benvinguda.</p>
+<p><img alt="Accés des de l'amfitrió" src="../img_pfsense/pfsense_des_de_amfitro.png" /></p>
+<h3 id="25-comprovar-navegacio">2.5 Comprovar navegació</h3>
+<p>Podem provar la navegació des del <code>Firefox</code> o podem afegir algun appliance de sistema operatiu real (per exemple un Ubuntu d'escriptori) i provar quina IP ens ha assignat i si podem navegar.</p>
+<p><img alt="Prova navegació" src="../img_pfsense/captura_navegant.png" /></p>
+<h3 id="26-habilitar-altra-interficie-de-xarxa">2.6 Habilitar altra interfície de xarxa</h3>
+<p>Com que la interfície <code>LAN</code> ja la teniem habilitada en la post-instal·lació no ho hem fet des del configurador web. Ara bé, pot donar-se el cas que en les nostres pràctiques de Xarxes necessitem altra interfície de xarxa (per exemple simulem xarxes separades per a aules i direcció sense VLANs). Vegem com es fa des del configurador.</p>
+<p>Implementem el següent escenari en el que tenim dues xarxes privades.</p>
+<p><img alt="Escenari amb dues xarxes privades" src="../img_pfsense/escenari_lan2.png" /></p>
+<p><code>INTERFACES -&gt; Assignments</code></p>
+<p>I creem una nova interfície que anomenem <code>LAN2</code>.</p>
+<p><img alt="Assignant LAN2" src="../img_pfsense/assignant_altra_interfaz.png" /></p>
+<p>Entrem en el menú de la interfície, marquem habilitar-la i que la seua IP siga estàtica (10.0.10.1/24).</p>
+<p><img alt="Habilitant LAN2" src="../img_pfsense/creant_LAN2.png" /></p>
+<p><img alt="Assignant IP LAN2" src="../img_pfsense/ip_lan2.png" /></p>
+<p>Configurem un servidor <code>DHCP</code> per a <code>LAN2</code>.</p>
+<p><code>SERVICES -&gt; DHCP-SERVER -&gt; LAN2</code></p>
+<p><img alt="Servidor DHCP LAN2" src="../img_pfsense/dhcpserver_lan2.png" /></p>
+<p>En el <code>firewall</code> de <code>LAN2</code> hem d'habilitar el tràfic, ja que per defecte estarà bloquejat. Podem posar les mateixes regles que tenim per defecte en <code>LAN</code> que són aquestes:</p>
+<p><img alt="Regles LAN" src="../img_pfsense/regles_lan_defecte.png" /></p>
+<p>O bé podem afegir una regla (completament insegura) per a habilitar tot el tràfic.</p>
+<p><img alt="Habilitar tot el tràfic" src="../img_pfsense/firewall_lan2.png" /></p>
+<p>Si tot està correcte, en el nostre Ubuntu tindrem una IP del rang de la LAN2, i podrem navegar.</p>
+<p><img alt="IP i navegació des de LAN2" src="../img_pfsense/navegant_lan2.png" /></p>
+<h3 id="27-altres-accions">2.7 Altres accions</h3>
+<p>Com voreu als menús de configuració, les possibilitats de pfSense són molt grans. A mode d'exemple adjuntem una captura en la que podem vore les IP que ha assignat el servidor DHCP.</p>
+<p><code>STATUS -&gt; DHCP-Leases</code></p>
+<p><img alt="DHCP-Leases" src="../img_pfsense/dhcp_leases.png" /></p>
+<hr />
+<h2 id="3-aplicacio-practica-a-laula-vlans">3. Aplicació pràctica a l'aula. VLANs</h2>
+<p>Per tal d'ampliar el tema i descobrir aplicacions pràctiques a l'aula de la virtualització amb <code>GNS3</code> continuarem el projecte mostrant la creació de VLANS i com el sistema de virtualització treballa amb elles de forma correcta.</p>
+<blockquote>
+<p><strong>VLAN</strong>: Una VLAN (Virtual Local Area Network) és una xarxa lògica que permet separar dispositius dins d'una mateixa xarxa física. Això es fa per millorar la seguretat, reduir el tràfic innecessari i organitzar millor els recursos. Amb una VLAN, dispositius de diferents ubicacions físiques poden estar en la mateixa xarxa lògica, mentre que altres dispositius de la mateixa infraestructura física poden estar en xarxes separades.</p>
+</blockquote>
+<p>L'ID de la VLAN (identificador de VLAN) és un número únic que s'utilitza per identificar una VLAN específica dins d'una xarxa. Aquest ID permet que dispositius i equips de xarxa, com switches i routers, sàpiguen a quina VLAN pertany un paquet de dades.</p>
+<h3 id="31-escenari">3.1 Escenari</h3>
+<p>A l'escenari anterior afegirem un switch genèric i configurarem el seu port 1 com a <code>TRUNK</code> indicant que el port és de tipus <code>dotq1</code>. Polsarem <code>add</code>. Seguidament indicarem que el port 2 serà per a la VLAN amb <code>ID 100</code> i el port 3 per a la VLAN amb <code>ID 200</code>. Aquestes configuracions s'han de fer <strong>sense connectar el switch</strong>.</p>
+<p><img alt="Configurant el switch" src="../img_pfsense/switch_vlans.png" /></p>
+<p>Una vegada configurat el switch ja el podrem unir al router i als PCs virtuals tal i com mostra l'escenari.</p>
+<p><img alt="Escenari amb VLANs" src="../img_pfsense/escenari_vlans.png" /></p>
+<h3 id="32-creacio-de-les-vlans">3.2 Creació de les VLANs</h3>
+<p>Primer hem d'habilitar una interfície del router per a dirigir les VLANs per ella. Tal i com hem fet en passos anteriors...</p>
+<p><code>INTERFACES -&gt; Assignments</code></p>
+<p>I habilitem <code>em3</code> i l'anomenem <code>TRUNK</code>.</p>
+<p><img alt="Habilitar interfície" src="../img_pfsense/habilitant_trunk.png" /></p>
+<p>Ara, des del menú de <code>INTERFACES-&gt;VLAN</code> definirem les dues VLANS (amb ids 100 i 200) i les dirigirem per la interfície <code>em3</code> que és la que hem definit per al <code>TRUNK</code>.</p>
+<p>Polsem afegir i emplenem així:</p>
+<p><img alt="Definició VLAN 100" src="../img_pfsense/vlan100.png" /></p>
+<p>El resultat final serà aquest.</p>
+<p><img alt="VLANS creades" src="../img_pfsense/vlans_creades.png" /></p>
+<p>A continuació haurem de definir les IP de les VLANS i crear els seus servidors DHCP. Primer haurem d'assignar les dues VLANs.</p>
+<p><img alt="Assignant VLANS" src="../img_pfsense/VLANs_assignments.png" /></p>
+<p>Utilitzarem aquestes IPs per a les VLANS:</p>
+<ul>
+<li><strong>ID 100</strong> - 10.0.100.1/24</li>
+<li><strong>ID 200</strong> - 10.0.200.1/24</li>
+</ul>
+<p><img alt="Habilitar i definir IP" src="../img_pfsense/definint_vlan_100.png" /></p>
+<p>I a continuació habilitem i configurem els servidors DHCP. Ho hem de fer per a les dos VLANS.</p>
+<p><img alt="Servidor DHCP per a VLAN 100" src="../img_pfsense/dhcp_vlan100.png" /></p>
+<h3 id="33-firewall">3.3 Firewall</h3>
+<p>Com en totes les noves interfícies en GNS3 tindrem per defecte tot el tràfic tallat. Habilitem tot el tràfic a mode de proves <strong>recordant que no és correcte en una xarxa d'ús real</strong>.</p>
+<p>Les regles han de permetre el pas de tots els protocols i tots els ports. <strong>S'ha de fer per a TRUNK, VLAN100 i VLAN200</strong>.</p>
+<p><img alt="Firewall Rules per a VLAN100" src="../img_pfsense/firewall_vlan100.png" /></p>
+<h3 id="34-comprovacions">3.4 Comprovacions</h3>
+<p>Si hem fet totes les configuracions anteriors, podem observar les IPs que rebem en els dos <code>VPC</code> de l'escenari. Haurem de rebre una IP del rang de la VLAN a la que pertany cada equip.</p>
+<p><img alt="IP correcta VPC1" src="../img_pfsense/dhcp_client_vlan100.png" /></p>
+<p>Per a VPC2 també tenim una IP correcta assignada.</p>
+<h3 id="35-possibles-ampliacions-o-millores">3.5 Possibles ampliacions o millores</h3>
+<p>Haureu observat que al configurar el <code>Firewall</code> de les diferents interfaces hem obert tot el tràfic de tots els protocols. Com ja hem dit no és una política de seguretat correcta, s'ha fet així per a facilitar el seguiment dels apunts i perquè l'objectiu del curs no era el de definir les regles dels tallafocs. No obstant un bon exercici pràctic seria el de pensar i definir les regles del tallafoc en funció de les necessitats de la nostra organització.</p>
+<hr />
+<h4 id="regles-recomanades-per-a-la-wan-al-pfsense">Regles recomanades per a la WAN al pfSense</h4>
+<h5 id="1-bloquejar-el-transit-no-sollicitat-entrant-a-la-wan">1. <strong>Bloquejar el trànsit no sol·licitat entrant a la WAN</strong></h5>
+<ul>
+<li>
+<p><strong>Objectiu</strong>: Evitar que trànsit no sol·licitat pugui accedir a la teva xarxa interna.</p>
+</li>
+<li>
+<p><strong>Configuració</strong>:</p>
+<ul>
+<li><strong>Interfície</strong>: WAN</li>
+<li><strong>Acció</strong>: Block</li>
+<li><strong>Protocol</strong>: Any</li>
+<li><strong>Origen</strong>: Any</li>
+<li><strong>Destinació</strong>: WAN Address</li>
+<li><strong>Comentari</strong>: Bloqueja tot el trànsit entrant no sol·licitat.</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-permetre-les-connexions-retornades-i-establertes">2. <strong>Permetre les connexions retornades i establertes</strong></h5>
+<ul>
+<li>El pfSense <strong>gestiona automàticament les connexions retornades</strong> (Stateful Packet Inspection - SPI), per tant no necessites configurar una regla específica per això.</li>
+</ul>
+<h5 id="3-permetre-transit-necessari-per-a-serveis-especifics">3. <strong>Permetre trànsit necessari per a serveis específics</strong></h5>
+<ul>
+<li>
+<p>Si tens serveis públics (com un servidor web o de correu), pots afegir regles per permetre connexions entrants específiques:</p>
+<ul>
+<li><strong>Interfície</strong>: WAN</li>
+<li><strong>Acció</strong>: Pass</li>
+<li><strong>Protocol</strong>: TCP (o el protocol específic del servei)</li>
+<li><strong>Origen</strong>: Any</li>
+<li><strong>Destinació</strong>: IP del servidor intern o "WAN Address"</li>
+<li><strong>Port de destinació</strong>: El port del servei (p. ex., 80 per HTTP, 443 per HTTPS, 25 per SMTP).</li>
+<li><strong>Comentari</strong>: Permet accés al servei [nom del servei].</li>
+</ul>
+</li>
+</ul>
+<h5 id="4-activar-nat-per-permetre-navegacio-des-de-la-lan">4. <strong>Activar NAT per permetre navegació des de la LAN</strong></h5>
+<ul>
+<li>El pfSense utilitza NAT per permetre que les xarxes internes naveguin a Internet:<ul>
+<li>Assegura't que la configuració <strong>Outbound NAT</strong> estigui en mode automàtic o manual amb regles que cobreixin la teva xarxa interna.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4 id="regles-recomanades-per-a-la-lan-al-pfsense">Regles recomanades per a la LAN al pfSense</h4>
+<h5 id="1-permetre-transit-sortint-des-de-lan-cap-a-qualsevol-lloc">1. <strong>Permetre trànsit sortint des de LAN cap a qualsevol lloc</strong></h5>
+<ul>
+<li>
+<p><strong>Objectiu</strong>: Permetre als dispositius de la xarxa interna accedir a Internet.</p>
+</li>
+<li>
+<p><strong>Configuració</strong>:</p>
+<ul>
+<li><strong>Interfície</strong>: LAN</li>
+<li><strong>Acció</strong>: Pass</li>
+<li><strong>Protocol</strong>: Any</li>
+<li><strong>Origen</strong>: LAN net</li>
+<li><strong>Destinació</strong>: Any</li>
+<li><strong>Comentari</strong>: Permet trànsit sortint des de la LAN.</li>
+</ul>
+</li>
+</ul>
+<p>Podríem afinar més aquesta regla permetent només els protocols essencials per a la navegació (TCP 80, 443 i, si cal, DNS - UDP 53).</p>
+<h5 id="2-bloquejar-transit-intern-no-desitjat">2. <strong>Bloquejar trànsit intern no desitjat</strong></h5>
+<ul>
+<li>
+<p>Si vols aplicar polítiques més restrictives:</p>
+<ul>
+<li>Bloqueja trànsit intern cap a IPs/ports específics.</li>
+<li>Per exemple, impedeix accedir a servidors maliciosos coneguts.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Peu de pàgina" >
+        
+          
+          <a href="../instalacio_pfsense/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Instal·lació i configuració">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Instal·lació i configuració
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../vlans_pfsense/" class="md-footer__link md-footer__link--next" aria-label="Següent: Apunts">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Següent
+              </span>
+              <div class="md-ellipsis">
+                Apunts
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Maite Martí - Xuso Ortí - Professors Departament d'Informàtica IES Jaume II el Just (Tavernes de la Valldigna)
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "content.code.copy", "content.code.annotate", "content.code.select", "navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
